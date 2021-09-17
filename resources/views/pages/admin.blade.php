@@ -12,7 +12,7 @@
   style="min-height: 1000px;width: 15%;"> <img src="/images/logo.png " style="min-height: 130px;width: 100%;"><br><br><br>
 
     <ul>
-    <li><a href="{{route('admin')}}"class=" btn-primary "><i class="fas fa-home"></i> Dashboard YAWA </a></li><br>
+    <li><a href="{{route('admin')}}"class=" btn-primary "><i class="fas fa-home"></i> Dashboard</a></li><br>
       <li><a href="{{route('admin_students')}}"class=" btn-primary "><i class="fas fa-user-graduate"></i> Students</a></li><br>
       <li><a href="{{route('admin_departments')}}"class=" btn-primary "><i class="fas fa-chalkboard-teacher"></i> Departments</a></li><br>
       <li><a href="{{route('admin_incharge')}}"class="btn-primary "><i class="fas fa-address-book"></i> In-charge</a></li><br>
