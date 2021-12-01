@@ -5,29 +5,11 @@
 
 
 /* TABLE*/
+
 table {
-  width: 100%;
+
   background-color: rgb(255, 255, 255);
 }
-.antialiased{
-  background-image: url(/images/acd.png); 
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  /* position: relative;
-  width: 100vw;
-  height: 100vh;
-  background-size: cover;
-  background-size: 100%;
-  background-position: center ;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  -webkit-backdrop-size: cover;
-  opacity: 9px;
-  -moz-filter: blur(10px);
-  filter: blur(); */
-}
- 
  /* Dashboard */
   .main-section{
   width:90%;

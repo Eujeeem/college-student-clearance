@@ -37,7 +37,7 @@
 
 <!-- Table -->
 <div class="grid-container mt-3 ">
-    <table id="example" class="table table-hover table-bordered" style="width:100%">
+    <table id="example" class="table table-hover table-bordered" style="width:123% ">
     <thead class="table-primary table-sm border-dark">
         <tr>
         <th >Student ID</th>
@@ -65,7 +65,6 @@
     </table>
 
     @include('Modals.add_student')
-
 </div>
 
 
