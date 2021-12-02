@@ -5,6 +5,17 @@
 
 
 /* TABLE*/
+.box
+{
+ width:100%;
+ padding:20px;
+ background-color:#fff;
+ border:1px solid #ccc;
+ border-radius:5px;
+ margin-top:25px;
+}
+  
+
 
 table {
 

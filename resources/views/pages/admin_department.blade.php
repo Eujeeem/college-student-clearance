@@ -31,11 +31,37 @@
 </div>
   </nav> 
 <div class="container col-md-8 offset-md-3 mt-5">
-<a href="#" class="btn btn-primary" id="myBtn" >Add</a>
+<a href="#" class="btn btn-primary ml-5" id="myBtn" >Add</a>
 <a href="{{route('admin')}}" class="btn btn-secondary offset-md-9">Back</a>
 
 <!-- Table -->
-<div class="grid-container mt-3  ">
+<div class="container box mt-3 ">
+    <table id="example" class="table table-bordered table-striped">
+    <!-- <table id="example" class="table table-hover table-bordered"> -->
+
+     <thead>
+      <tr>
+       <th width="10%">Department Name</th>
+       <th width="15%">Incharge</th>
+       <th width="10%">Action</th>
+      </tr>
+     </thead>
+     <tbody>
+     @foreach ($show as $lists)
+      
+      <tr>
+      <td>{{$lists->department_name}} </td>
+      <td>{{$lists->incharge_name}}</td>
+
+      <td class="text-center"><a href="{{route('edit_department', $lists->id)}}" class="me-1"><i class="fas fa-edit"></i></a><a href="{{route('delete_department', $lists->id)}}" onclick="return confirm('Are you sure you want to delete it?');"><i class="fas fa-trash-alt"></i></a></td>
+      </tr>
+    
+  @endforeach
+
+    </tbody>
+    </table>
+   </div>
+<!-- <div class="grid-container mt-3  ">
     <table id="example" class="table table-hover table-bordered" style="width:121%">
     <thead class="table-primary table-sm border-dark ">
         <tr>
@@ -59,7 +85,7 @@
 
     </tbody>
     </table>
-</div>
+</div> -->
 
     @include('Modals.add_department')
 

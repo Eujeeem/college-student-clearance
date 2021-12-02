@@ -32,11 +32,40 @@
 </div>
   </nav> 
 <div class="container col-md-8 offset-md-3 mt-5 admin_student">
-<a href="#" class="btn btn-primary"  id="myBtn" >Add</a>
+<a href="#" class="btn btn-primary ml-5"  id="myBtn " >Add</a>
 <a href="{{route('admin')}}" class="btn btn-secondary offset-md-9">Back</a>
 
 <!-- Table -->
-<div class="grid-container mt-3 ">
+ <div class="container box mt-3 ">
+    <table id="example" class="table table-bordered table-striped">
+    <!-- <table id="example" class="table table-hover table-bordered"> -->
+
+     <thead>
+      <tr>
+       <th width="10%">Student ID</th>
+       <th width="15%">Student Name</th>
+       <th width="10%">Course</th>
+       <th width="10%">Year</th>
+       <th width="20%">Contact Number</th>
+       <th width="10%">Action</th>
+      </tr>
+     </thead>
+     <tbody>
+    @foreach ($show as $lists)
+        <tr>
+        <td>{{$lists->id}}</td>
+        <td>{{$lists->student_lname}}, {{$lists->student_fname}} {{$lists->student_mname}}. </td>
+        <td>{{$lists->course_name}}</td>
+        <td>{{$lists->student_year}}</td>
+        <td>{{$lists->student_contactnumber}}</td>
+        <td class="text-center"><a href="{{route('edit_student', $lists->id)}}" class="me-1"><i class="fas fa-edit"></i></a><a href="{{route('delete_student', $lists->id)}}" onclick="return confirm('Are you sure you want to delete it?');"><i class="fas fa-trash-alt"></i></a></td>
+        </tr>
+    @endforeach
+
+    </tbody>
+    </table>
+   </div>
+<!-- <div class="grid-container mt-3 ">
     <table id="example" class="table table-hover table-bordered" style="width:123% ">
     <thead class="table-primary table-sm border-dark">
         <tr>
@@ -62,7 +91,7 @@
     @endforeach
 
     </tbody>
-    </table>
+    </table> -->
 
     @include('Modals.add_student')
 </div>
