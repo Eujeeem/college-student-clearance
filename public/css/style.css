@@ -387,4 +387,8 @@ body {
     clear: both;
   }
   
+  .avatar {
+    width: 70px;
+
+  }
   

@@ -10,7 +10,7 @@
 
 @include('sections.header')
 
-<div class="container col-md-6 offset-md-3 mt-2"  style="width: 150%;">>
+<div class="container col-md-6 offset-md-3 mt-2"  style="width: 150%;">
 <div class="">
     <h1 class="text-center">Online Student Clearance</h1>
     <!-- {{ session()->get('student_id') }} -->
@@ -20,8 +20,12 @@ $count = 1
 @foreach ($show as $lists) 
     
     @if ($count == 1)
-    @if ($lists->student_id == session('student_id'))  
-        <h5>Name: <b>{{$lists->student_lname}}, {{$lists->student_fname}} {{$lists->student_mname}}.</b></h5>
+    @if ($lists->student_id == session('student_id'))
+    <?php
+        $fullname = $lists->student_fname . " " . $lists->student_lname;
+    ?>    
+        <h5><img src="{{ Avatar::create($fullname)->toBase64() }}" /><b>{{$lists->student_lname}}, {{$lists->student_fname}} {{$lists->student_mname}}.</b></h5>
+        
         <h5>Year: <b>{{$lists->student_year}}</b></h5>
         <h5>Course: <b>{{$lists->course_name}}</b></h5>
         <h5>Academic Year: <b>{{$lists->year}}</b></h5>
