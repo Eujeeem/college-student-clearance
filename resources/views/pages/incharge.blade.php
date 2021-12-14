@@ -33,7 +33,7 @@ $count = $count+1
 
 <div class="container box "> 
 <div class="button">
-<a href="#"  class="btn btn-danger text-dark badge-pill"style="width:80px">BSIT</a>
+<a href="{{route('incharge_BSIT')}}"  class="btn btn-danger text-dark badge-pill"style="width:80px">BSIT</a>
 <a href="#"  class="btn btn-secondary text-dark badge-pill"style="width:80px">BSHM</a>
 <a href="#"  class="btn btn-warning text-dark badge-pill"style="width:80px">BSED</a>
 <a href="#"  class="btn btn-primary text-dark badge-pill"style="width:80px">BEED</a>
