@@ -67,6 +67,16 @@ class LoginController extends Controller
         return view ('pages.incharge',['show' => $show]);
     }
 
+    public function incharge_home_BSIT(){
+        
+        $show = DB::table('lists')
+        ->join('departments', 'lists.department_id', '=', 'departments.id')
+        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
+        ->join('students', 'students.id', '=', 'lists.student_id')
+        ->get();
+        return view ('pages.incharge',['show' => $show]);
+    }
+
     public function student_home(){
         
         $show = DB::table('students')
