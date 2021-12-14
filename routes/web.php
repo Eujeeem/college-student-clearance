@@ -62,7 +62,7 @@ Route::middleware(['logoutcheck', 'manageAdminAccess'])->group(function(){
     Route::post('/admin/student/update{id}', [AdminController::class, "update_student"])->name("update_student");
 
     Route::get('/admin/student/delete{id}', [AdminController::class, "delete_student"])->name("delete_student");
-
+    
 
 
 });

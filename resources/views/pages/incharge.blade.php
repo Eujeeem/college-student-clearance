@@ -32,24 +32,19 @@ $count = $count+1
 </div>
 
 <div class="container box "> 
-<br><div class="radios">
-<input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
-<label class="btn btn-secondary" for="option1">BSIT</label>
+<div class="button">
+<a href="#"  class="btn btn-danger text-dark badge-pill"style="width:80px">BSIT</a>
+<a href="#"  class="btn btn-secondary text-dark badge-pill"style="width:80px">BSHM</a>
+<a href="#"  class="btn btn-warning text-dark badge-pill"style="width:80px">BSED</a>
+<a href="#"  class="btn btn-primary text-dark badge-pill"style="width:80px">BEED</a>
+<a href="#"  class="btn btn-success text-dark badge-pill"style="width:80px">BSSW</a>
 
-<input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-<label class="btn btn-secondary" for="option2">BSED</label>
+<div class="float-right"> 
+<button type="button" onclick="window.print()" class="btn btn-info btn-rounded"><i class="fas fa-print"></i> Print</button>
+</div>
 
-<input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
-<label class="btn btn-secondary" for="option3">HRM</label>
-
-<input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
-<label class="btn btn-secondary" for="option4">ALL</label>
-
-<input type="radio" class="btn-check">
-<label onclick="window.print()" class="btn btn-info"><i class="fas fa-print"></i> Print</label>
-
-</div></br>
-<br><div class="select">
+</div>
+<div class="select">
 <select class="form-select"  style="width:15%; margin:5px;">
   <option selected>Select Year</option>
   <option value="1">1st</option>
