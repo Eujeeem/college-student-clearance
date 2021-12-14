@@ -73,6 +73,10 @@ Route::middleware(['logoutcheck', 'manageStudentAccess'])->group(function(){
 });
 
 Route::middleware(['logoutcheck', 'manageInchargeAccess'])->group(function(){
+    Route::get('/incharge/BSED', [LoginController::class, "incharge_home_BSED"])->name("incharge_BSED");
+    Route::get('/incharge/BEED', [LoginController::class, "incharge_home_BEED"])->name("incharge_BEED");
+    Route::get('/incharge/BSSW', [LoginController::class, "incharge_home_BSSW"])->name("incharge_BSSW");
+    Route::get('/incharge/BSHM', [LoginController::class, "incharge_home_BSHM"])->name("incharge_BSHM");
     Route::get('/incharge/BSIT', [LoginController::class, "incharge_home_BSIT"])->name("incharge_BSIT");
     Route::get('/incharge', [LoginController::class, "incharge_home"])->name("incharge"); 
     Route::get('/edit-status/{id}', [InchargeController::class, "edit_status"])->name("edit_status");
