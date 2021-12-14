@@ -25,7 +25,6 @@ $count = 1
         $fullname = $lists->student_fname . " " . $lists->student_lname;
     ?>    
         <h5><img src="{{ Avatar::create($fullname)->toBase64() }}" class="avatar" /><b>{{$lists->student_lname}}, {{$lists->student_fname}} {{$lists->student_mname}}.</b></h5>
-        
         <h5>Year: <b>{{$lists->student_year}}</b></h5>
         <h5>Course: <b>{{$lists->course_name}}</b></h5>
         <h5>Academic Year: <b>{{$lists->year}}</b></h5>
@@ -45,7 +44,7 @@ $count = $count+1
         <th >Department</th>
         <th >Status</th>
         <th style="width: 30%;">Notes  </th>
-        <th class="text-center">>Date Cleared</th>
+        <th class="text-center">Date Cleared</th>
         </tr>
     </thead>
     <tbody>
