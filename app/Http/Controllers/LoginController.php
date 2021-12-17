@@ -73,8 +73,9 @@ class LoginController extends Controller
         ->join('departments', 'lists.department_id', '=', 'departments.id')
         ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
         ->join('students', 'students.id', '=', 'lists.student_id')
+        // ->where('students.course_name', 'Bachelor of Science in Information Technology')
         ->get();
-        return view ('pages.incharge',['show' => $show]);
+        return view ('pages.incharge_BSIT',['show' => $show]);
     }
     public function incharge_home_BSHM(){
         
@@ -82,6 +83,7 @@ class LoginController extends Controller
         ->join('departments', 'lists.department_id', '=', 'departments.id')
         ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
         ->join('students', 'students.id', '=', 'lists.student_id')
+        // ->where('students.course_name', 'Bachelor of Science in Hospitality Management')
         ->get();
         return view ('pages.incharge',['show' => $show]);
     }
