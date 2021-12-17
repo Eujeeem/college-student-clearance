@@ -85,7 +85,7 @@ class LoginController extends Controller
         ->join('students', 'students.id', '=', 'lists.student_id')
         // ->where('students.course_name', 'Bachelor of Science in Hospitality Management')
         ->get();
-        return view ('pages.incharge',['show' => $show]);
+        return view ('pages.incharge_BSHM',['show' => $show]);
     }
     public function incharge_home_BSSW(){
         
@@ -93,8 +93,9 @@ class LoginController extends Controller
         ->join('departments', 'lists.department_id', '=', 'departments.id')
         ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
         ->join('students', 'students.id', '=', 'lists.student_id')
+        // ->where('students.course_name', 'Bachelor of Science in Social Work')
         ->get();
-        return view ('pages.incharge',['show' => $show]);
+        return view ('pages.incharge_BSSW',['show' => $show]);
     }
     public function incharge_home_BSED(){
         
@@ -102,8 +103,9 @@ class LoginController extends Controller
         ->join('departments', 'lists.department_id', '=', 'departments.id')
         ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
         ->join('students', 'students.id', '=', 'lists.student_id')
+        // ->where('students.course_name', 'Bachelor in Secondary Education')
         ->get();
-        return view ('pages.incharge',['show' => $show]);
+        return view ('pages.incharge_BSED',['show' => $show]);
     }
     public function incharge_home_BEED(){
         
@@ -111,8 +113,19 @@ class LoginController extends Controller
         ->join('departments', 'lists.department_id', '=', 'departments.id')
         ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
         ->join('students', 'students.id', '=', 'lists.student_id')
+        // ->where('students.course_name', 'Bachelor in Elementary Education')
         ->get();
-        return view ('pages.incharge',['show' => $show]);
+        return view ('pages.incharge_BEED',['show' => $show]);
+    }
+    public function incharge_home_BSBA(){
+        
+        $show = DB::table('lists')
+        ->join('departments', 'lists.department_id', '=', 'departments.id')
+        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
+        ->join('students', 'students.id', '=', 'lists.student_id')
+        // ->where('students.course_name', 'Bachelor of Science in Business Administrator')
+        ->get();
+        return view ('pages.incharge_BSBA',['show' => $show]);
     }
     public function student_home(){
         

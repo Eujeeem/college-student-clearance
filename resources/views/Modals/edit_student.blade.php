@@ -39,6 +39,8 @@
                             <option value="Bachelor of Science in Social Work">Bachelor of Science in Social Work</option>  
                             <option value="Bachelor of Elementary Education">Bachelor of Elementary Education</option>                          
                             <option value="Bachelor of Science in Hospitality Management">Bachelor of Science in Hospitality Management</option>
+                            <option value="Bachelor of Science in Hospitality Management">Bachelor in Secondary Education</option>
+                            <option value="Bachelor of Science in Hospitality Management">Bachelor of Science in Business Administrator</option>
                             </select>
                         </div>
                         <div class="mb-3">

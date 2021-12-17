@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('title')
-    BSIT STUDENT
+    BSSW STUDENT
 @endsection
 
 @section('content')

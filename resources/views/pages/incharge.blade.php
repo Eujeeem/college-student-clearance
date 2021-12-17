@@ -35,13 +35,14 @@ $count = $count+1
 <div class="button">
 <a href="{{route('incharge_BSIT')}}"  class="btn btn-danger text-dark badge-pill"style="width:80px">BSIT</a>
 <a href="{{route('incharge_BSHM')}}"  class="btn btn-secondary text-dark badge-pill"style="width:80px">BSHM</a>
-<a href="{{route('incharge_BSED')}}"  class="btn btn-warning text-dark badge-pill"style="width:80px">BSED</a>
+<a href="{{route('incharge_BSBA')}}"  class="btn btn-warning text-dark badge-pill"style="width:80px">BSED</a>
 <a href="{{route('incharge_BEED')}}"  class="btn btn-primary text-dark badge-pill"style="width:80px">BEED</a>
 <a href="{{route('incharge_BSSW')}}"  class="btn btn-success text-dark badge-pill"style="width:80px">BSSW</a>
-<a href="{{route('incharge')}}"  class="btn btn-light text-dark badge-pill"style="width:80px">REST</a>
+<a href="{{route('incharge_BSED')}}"  class="btn btn-info text-dark badge-pill"style="width:80px">BSED</a>
+<a href="{{route('incharge')}}"  class="btn btn-light text-dark badge-pill"style="width:80px">ALL</a>
 
 <div class="float-right"> 
-<button type="button" onclick="window.print()" class="btn btn-info btn-rounded"><i class="fas fa-print"></i> Print</button>
+<button type="button" onclick="window.print()" class="btn btn-dark btn-rounded"><i class="fas fa-print"></i> Print</button>
 </div>
 
 </div>
