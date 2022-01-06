@@ -6,7 +6,7 @@
 
 @section('content')
 
-@include('sections.header')
+@include('sections.header2')
 <section>
 <nav class="side-nav navbar-dark bg-primary" 
   style="min-height: 1000px;width: 15%;"> <img src="/images/logo.png " style="min-height: 130px;width: 100%;"><br><br><br>
