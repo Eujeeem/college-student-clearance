@@ -10,9 +10,10 @@
 
 @include('sections.header')
 
+<div class="student">
 <div class="container col-md-6 offset-md-3 mt-2"  style="width: 150%;">
 <div class="">
-    <h1 class="text-center">Online Student Clearance</h1>
+    <h1 style="font-family:Stencil;" class="text-center mt-5">Online Student Clearance</h1>
     <!-- {{ session()->get('student_id') }} -->
 @php
 $count = 1
@@ -21,9 +22,9 @@ $count = 1
     
     @if ($count == 1)
     @if ($lists->student_id == session('student_id'))
-        <h5>Year: <b>{{$lists->student_year}}</b></h5>
-        <h5>Course: <b>{{$lists->course_name}}</b></h5>
-        <h5>Academic Year: <b>{{$lists->year}}</b></h5>
+        <h6>Year: <b>{{$lists->student_year}}</b></h6>
+        <h6>Course: <b>{{$lists->course_name}}</b></h6>
+        <h6>Academic Year: <b>{{$lists->year}}</b></h6>
         <br>
 @php
 $count = $count+1
@@ -56,7 +57,7 @@ $count = $count+1
     @endforeach
     </tbody>
     </table>
-
+</div>
 @endsection
 
 @section('scripts')

@@ -390,3 +390,8 @@ body {
   .avatar {
     width: 30px;
   }
+
+  .student .dataTables_length {
+    font-weight: bold;
+  }
+

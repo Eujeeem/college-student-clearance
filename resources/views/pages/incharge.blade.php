@@ -7,7 +7,7 @@
 @section('content')
 
 
-@include('sections.searchbar')
+@include('sections.header_incharge')
 
 <div class="container col-md-6 offset-md-3 mt-5">
     <h3 class="text-center">
