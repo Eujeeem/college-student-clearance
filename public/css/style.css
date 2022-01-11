@@ -1,5 +1,82 @@
+/*Table*/
+
+table {
+  width: 100%;
+}
+
+th, td {
+  font-weight: unset;
+  padding-right: 10px;
+}
+
+.column1 {
+  width: 33%;
+  padding-left: 40px;
+}
+
+.column2 {
+  width: 13%;
+}
+
+.column3 {
+  width: 22%;
+}
+
+.column4 {
+  width: 19%;
+}
 
 
+
+.table100-head th {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.table100-body td {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+/*Fix header*/
+.table100 {
+  position: relative;
+  padding-top: 50px;
+}
+
+.table100-head {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.table100-body {
+  max-height: 350px;
+  overflow: auto;
+}
+
+/*Ver3*/
+.table100.ver3 {
+  background-color: #393939;
+}
+
+.table100.ver3 th {
+  font-family: 'Roboto Black', sans-serif;
+  font-size: 15px;
+  color: white;
+  line-height: 1.4;
+  text-transform: uppercase;
+  background-color: #2596be;
+}
+
+.table100.ver3 td {
+  
+  font-size: 15px;
+  color: #000000;
+  line-height: 1.4;
+  background-color:   rgb(255, 255, 255);
+}
 
 label {
   width:10%;
@@ -32,7 +109,6 @@ label {
 
 
 table {
-
   background-color: rgb(255, 255, 255);
 }
  /* Dashboard */
