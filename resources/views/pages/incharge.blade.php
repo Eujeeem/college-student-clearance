@@ -8,8 +8,12 @@
 
 
 @include('sections.header_incharge')
+<nav class="side-nav navbar-dark bg-primary" 
+  style="min-height: 1000px;width: 15%;"> <img src="/images/logo.png " style="min-height: 130px;width: 100%;"><br><br><br>
 
-<div class="container col-md-6 offset-md-3 mt-5">
+</nav>
+
+<!-- <div class="container col-md-6 offset-md-3 mt-5">
     <h3 class="text-center">
 
     @php
@@ -30,6 +34,7 @@ $count = $count+1
     <br>
 
 </div>
+
 
 <div class="container box "> 
 <div class="button">
@@ -100,7 +105,7 @@ $count = $count+1
     @endforeach
 
     </tbody>
-    </table> 
+    </table>  -->
 
  
 
