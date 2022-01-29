@@ -15,7 +15,7 @@
 <div>
 <a href="{{route('incharge_BSIT')}}"  class="btn btn-primary text-dark round-0 "style="width:100%; border-radius:0">BSIT</a>
 <a href="{{route('incharge_BSHM')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0">BSHM</a>
-<a href="{{route('incharge_BSBA')}}"  class="btn btn-primary text-dark"style="width:100%; border-radius:0">BSED</a>
+<a href="{{route('incharge_BSBA')}}"  class="btn btn-primary text-dark"style="width:100%; border-radius:0">BSBA</a>
 <a href="{{route('incharge_BEED')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0">BEED</a>
 <a href="{{route('incharge_BSSW')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0">BSSW</a>
 <a href="{{route('incharge_BSED')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0">BSED</a>
@@ -55,7 +55,7 @@ $count = $count+1
 <a href="{{route('incharge_BSHM')}}"  class="btn btn-primary text-white "style="width:100px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px;">2nd Year</a>
 <a href="{{route('incharge_BSBA')}}"  class="btn btn-primary text-white "style="width:100px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px">3rd Year</a>
 <a href="{{route('incharge_BEED')}}"  class="btn btn-primary text-white "style="width:100px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px">4th Year</a>
-<a href="{{route('incharge_BSSW')}}"  class="btn btn-secondary text-white "style="width:100px; border-radius: 5px 5px 0px 0px; box-shadow:0px 0px">All Year</a>
+<a href="{{route('incharge_BSSW')}}"  class="btn text-primary "style="width:100px; border-radius: 5px 5px 0px 0px; box-shadow:0px 0px; background-color: #ccc"><strong>All Year</strong></a>
 
 
 

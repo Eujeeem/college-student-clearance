@@ -1,13 +1,27 @@
 @extends('layout.master')
 
 @section('title')
-    BSBA STUDENT
+    Home
 @endsection
 
 @section('content')
 
 
-@include('sections.searchbar')
+@include('sections.header_incharge')
+<nav class="side-nav navbar-dark bg-primary" 
+  style="min-height: 1000px;width: 15%;"> <img src="/images/logo.png " style="min-height: 130px;width: 80%; margin-left:10%"><br><br><br>
+
+
+<div>
+<a href="{{route('incharge_BSIT')}}"  class="btn btn-primary text-dark round-0 "style="width:100%; border-radius:0; box-shadow:0px 0px">BSIT</a>
+<a href="{{route('incharge_BSHM')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">BSHM</a>
+<a href="{{route('incharge_BSBA')}}"  class="btn btn-light text-dark"style="width:100%; border-radius:0; font-size:20px; box-shadow:0px 0px"><strong>BSBA</strong></a>
+<a href="{{route('incharge_BEED')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">BEED</a>
+<a href="{{route('incharge_BSSW')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">BSSW</a>
+<a href="{{route('incharge_BSED')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">BSED</a>
+<a href="{{route('incharge')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; font-size:20px; box-shadow:0px 0px">ALL</a>  
+</div>  
+</nav>
 
 <div class="container col-md-6 offset-md-3 mt-5">
     <h3 class="text-center">
@@ -31,32 +45,23 @@ $count = $count+1
 
 </div>
 
-<div class="container box "> 
-<div class="button">
-<a href="{{route('incharge_BSIT')}}"  class="btn btn-danger text-dark badge-pill"style="width:80px">BSIT</a>
-<a href="{{route('incharge_BSHM')}}"  class="btn btn-secondary text-dark badge-pill"style="width:80px">BSHM</a>
-<a href="{{route('incharge_BSBA')}}"  class="btn btn-warning text-dark badge-pill"style="width:80px">BSED</a>
-<a href="{{route('incharge_BEED')}}"  class="btn btn-primary text-dark badge-pill"style="width:80px">BEED</a>
-<a href="{{route('incharge_BSSW')}}"  class="btn btn-success text-dark badge-pill"style="width:80px">BSSW</a>
-<a href="{{route('incharge_BSED')}}"  class="btn btn-info text-dark badge-pill"style="width:80px">BSED</a>
-<a href="{{route('incharge')}}"  class="btn btn-light text-dark badge-pill"style="width:80px">ALL</a>
 
+<div class="container box "> 
 <div class="float-right"> 
-<button type="button" onclick="window.print()" class="btn btn-dark btn-rounded"><i class="fas fa-print"></i> Print</button>
+<button type="button" onclick="window.print()" class="btn btn-dark btn-rounded mb-4 "><i class="fas fa-print"></i> Print</button>
 </div>
+<div class="button">
+<a href="{{route('incharge_BSIT')}}"  class="btn btn-primary text-white "style="width:100px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px ">1st Year</a>
+<a href="{{route('incharge_BSHM')}}"  class="btn btn-primary text-white "style="width:100px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px;">2nd Year</a>
+<a href="{{route('incharge_BSBA')}}"  class="btn btn-primary text-white "style="width:100px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px">3rd Year</a>
+<a href="{{route('incharge_BEED')}}"  class="btn btn-primary text-white "style="width:100px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px">4th Year</a>
+<a href="{{route('incharge_BSSW')}}"  class="btn text-primary "style="width:100px; border-radius: 5px 5px 0px 0px; box-shadow:0px 0px; background-color: #ccc"><strong>All Year</strong></a>
+
+
 
 </div>
-<div class="select">
-<select class="form-select"  style="width:15%; margin:5px;">
-  <option selected>Select Year</option>
-  <option value="1">1st</option>
-  <option value="2">2nd</option>
-  <option value="3">3rd</option>
-  <option value="3">4th</option>
-</select>
-</div>
 
-<div class="container box "> 
+<div class="container box2 "> 
     <table id="example" class="table table-bordered table-striped">
     <thead class="table-primary table-sm">
     <tr>
@@ -174,9 +179,7 @@ $count = $count+1
     @include('Modals.edit_notes')
 
 
-</div>
-</div>
-</div>
+
 </div>
 
 @endsection
