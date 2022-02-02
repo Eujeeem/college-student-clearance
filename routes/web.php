@@ -7,7 +7,7 @@ use App\Http\Controllers\InchargeController;
 
 
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,8 +62,10 @@ Route::middleware(['logoutcheck', 'manageAdminAccess'])->group(function(){
     Route::post('/admin/student/update{id}', [AdminController::class, "update_student"])->name("update_student");
 
     Route::get('/admin/student/delete{id}', [AdminController::class, "delete_student"])->name("delete_student");
-    
 
+    
+    Route::get('/admin/students/view', [StudentController::class, "view"])->name("view");
+    Route::post('/import', [StudentController::class, "import"]);
 
 });
 
