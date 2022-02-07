@@ -67,6 +67,7 @@ Route::middleware(['logoutcheck', 'manageAdminAccess'])->group(function(){
     Route::get('/admin/students/view', [StudentController::class, "view"])->name("view");
     Route::post('/import', [StudentController::class, "import"]);
 
+    
 });
 
 Route::middleware(['logoutcheck', 'manageStudentAccess'])->group(function(){
@@ -75,6 +76,7 @@ Route::middleware(['logoutcheck', 'manageStudentAccess'])->group(function(){
 });
 
 Route::middleware(['logoutcheck', 'manageInchargeAccess'])->group(function(){
+    
     Route::get('/incharge/BSBA', [LoginController::class, "incharge_home_BSBA"])->name("incharge_BSBA");
     Route::get('/incharge/BSED', [LoginController::class, "incharge_home_BSED"])->name("incharge_BSED");
     Route::get('/incharge/BEED', [LoginController::class, "incharge_home_BEED"])->name("incharge_BEED");
@@ -84,6 +86,12 @@ Route::middleware(['logoutcheck', 'manageInchargeAccess'])->group(function(){
     Route::get('/incharge', [LoginController::class, "incharge_home"])->name("incharge"); 
     Route::get('/edit-status/{id}', [InchargeController::class, "edit_status"])->name("edit_status");
     Route::post('/update/notes{id}', [InchargeController::class, "edit_notes"])->name("edit_notes");
+    Route::get('/incharge/BSIT/FIRST', [LoginController::class, "incharge_home_BSIT_FIRST"])->name("year_first");
+    Route::get('/incharge/BSIT/SECOND', [LoginController::class, "incharge_home_BSIT_SECOND"])->name("year_second");
+    Route::get('/incharge/BSIT/THIRD', [LoginController::class, "incharge_home_BSIT_THIRD"])->name("year_third");
+    Route::get('/incharge/BSIT/FOURTH', [LoginController::class, "incharge_home_BSIT_FOURTH"])->name("year_fourth");
+    Route::get('/incharge/BSIT/ALL', [LoginController::class, "incharge_home_BSIT_ALL"])->name("year_all");
+    
 });
 
 

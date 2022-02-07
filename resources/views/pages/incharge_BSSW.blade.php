@@ -51,11 +51,11 @@ $count = $count+1
 <button type="button" onclick="window.print()" class="btn btn-dark btn-rounded mb-4 "><i class="fas fa-print"></i> Print</button>
 </div>
 <div class="button">
-<a href="{{route('incharge_BSIT')}}"  class="btn btn-primary text-white "style="width:100px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px ">1st Year</a>
-<a href="{{route('incharge_BSHM')}}"  class="btn btn-primary text-white "style="width:100px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px;">2nd Year</a>
-<a href="{{route('incharge_BSBA')}}"  class="btn btn-primary text-white "style="width:100px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px">3rd Year</a>
-<a href="{{route('incharge_BEED')}}"  class="btn btn-primary text-white "style="width:100px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px">4th Year</a>
-<a href="{{route('incharge_BSSW')}}"  class="btn text-primary "style="width:100px; border-radius: 5px 5px 0px 0px; box-shadow:0px 0px; background-color: #ccc"><strong>All Year</strong></a>
+<a href=""  class="btn btn-primary text-white "style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px ">1ST YEAR</a>
+<a href=""  class="btn btn-primary text-white "style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px ">2nd YEAR</a>
+<a href=""  class="btn btn-primary text-white"style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px ">3RD YEAR</a>
+<a href=""  class="btn btn-primary text-white "style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px ">4TH YEAR</a>
+<a href=""  class="btn text-primary "style="width:100px; border-radius: 5px 5px 0px 0px; box-shadow:0px 0px; background-color: #ccc "><strong>All Year</strong></a>
 
 
 

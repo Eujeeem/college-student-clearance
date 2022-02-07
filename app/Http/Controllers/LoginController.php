@@ -66,7 +66,51 @@ class LoginController extends Controller
         ->get();
         return view ('pages.incharge',['show' => $show]);
     }
-
+    public function incharge_home_BSIT_FIRST(){
+        
+        $show = DB::table('lists')
+        ->join('departments', 'lists.department_id', '=', 'departments.id')
+        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
+        ->join('students', 'students.id', '=', 'lists.student_id')
+        ->get();
+        return view ('pages.year_first',['show' => $show]);
+    }
+    public function incharge_home_BSIT_SECOND(){
+        
+        $show = DB::table('lists')
+        ->join('departments', 'lists.department_id', '=', 'departments.id')
+        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
+        ->join('students', 'students.id', '=', 'lists.student_id')
+        ->get();
+        return view ('pages.year_second',['show' => $show]);
+    }
+    public function incharge_home_BSIT_THIRD(){
+        
+        $show = DB::table('lists')
+        ->join('departments', 'lists.department_id', '=', 'departments.id')
+        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
+        ->join('students', 'students.id', '=', 'lists.student_id')
+        ->get();
+        return view ('pages.year_third',['show' => $show]);
+    }
+    public function incharge_home_BSIT_FOURTH(){
+        
+        $show = DB::table('lists')
+        ->join('departments', 'lists.department_id', '=', 'departments.id')
+        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
+        ->join('students', 'students.id', '=', 'lists.student_id')
+        ->get();
+        return view ('pages.year_fourth',['show' => $show]);
+    }
+    public function incharge_home_BSIT_ALL(){
+        
+        $show = DB::table('lists')
+        ->join('departments', 'lists.department_id', '=', 'departments.id')
+        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
+        ->join('students', 'students.id', '=', 'lists.student_id')
+        ->get();
+        return view ('pages.year_all',['show' => $show]);
+    }
     public function incharge_home_BSIT(){
         
         $show = DB::table('lists')
@@ -127,6 +171,7 @@ class LoginController extends Controller
         ->get();
         return view ('pages.incharge_BSBA',['show' => $show]);
     }
+    
     public function student_home(){
         
         $show = DB::table('students')
@@ -137,6 +182,7 @@ class LoginController extends Controller
     }    
 }
 
+    
 
             //    INCHARGE CODE 
             // $dpname = DB::table('departments')->where('incharge_id', $userid)->value('department_name');
