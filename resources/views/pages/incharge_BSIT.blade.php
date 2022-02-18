@@ -46,7 +46,7 @@ $count = $count+1
 </div>
 
 
-<div class="container box "> 
+<div class="container box " style="width:80%; margin-left: 18%"> 
 <div class="float-right"> 
 <button type="button" onclick="window.print()" class="btn btn-dark btn-rounded mb-4 "><i class="fas fa-print"></i> Print</button>
 </div>
@@ -66,7 +66,7 @@ $count = $count+1
     <tr>
        <th width="20%">Student Name</th>
        <th width="30%">Courses</th>
-       <th width="15%">Year</th>
+       <th width="10%">Year</th>
        <th width="10%">Status</th>
        <th width="5%">Notes</th>
        <th width="15%">Data Cleared</th>
