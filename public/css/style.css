@@ -480,3 +480,8 @@ body {
     font-weight: bold;
   }
 
+.admin-navbar:hover {
+ font-weight: bold;
+ text-decoration: none;
+ background-color: black;
+}
