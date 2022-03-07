@@ -105,6 +105,11 @@ class AdminController extends Controller
         return redirect()->route('admin_departments');  
     }
 
+    public function add_new_incharge(Request $request){
+        return view("Modals.add_incharge");
+
+    }  
+
     public function add_incharge(Request $request){
 
         $incharge = new Incharge();

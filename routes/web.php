@@ -51,6 +51,8 @@ Route::middleware(['logoutcheck', 'manageAdminAccess'])->group(function(){
 
     Route::post('/admin/incharge/add', [AdminController::class, "add_incharge"])->name("add_incharge");
 
+    Route::get('/admin/departments/new-incharge/add', [AdminController::class, "add_new_incharge"])->name("add_new_incharge");
+
     Route::get('/admin/incharge/edit/{id}', [AdminController::class, "edit_incharge"])->name("edit_incharge");
 
     Route::post('/admin/incharge/update{id}', [AdminController::class, "update_incharge"])->name("update_incharge");
@@ -66,9 +68,9 @@ Route::middleware(['logoutcheck', 'manageAdminAccess'])->group(function(){
     Route::post('/admin/student/update{id}', [AdminController::class, "update_student"])->name("update_student");
 
     Route::get('/admin/student/delete{id}', [AdminController::class, "delete_student"])->name("delete_student");
-
-    
+   
     Route::get('/admin/students/view', [StudentController::class, "view"])->name("view");
+
     Route::post('/import', [StudentController::class, "import"]);
 
     

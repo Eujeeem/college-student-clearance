@@ -24,17 +24,19 @@
 
 
 <div class="container add_student mt-5">
+
+<h1 style="font-family: Courier New; font-weight: Bold;">Edit Department</h1>
                 
     <form action="{{route('update_department', $lists->id)}}" method="post">
     @csrf
         <div class="mb-3">
         
-        <label for="DepartmentName" class="form-label"><b>Department Name</b></label>
+        <label for="DepartmentName" class="form-label " style="width: 200px; text-align: left;"><b>Department Name</b></label>
         <input type="text" value="{{$lists->department_name}}" class="form-control" name="department">
         </div>
 
         <div class="mb-3">
-        <label for="inchargename" class="form-label"><b>Incharge</b></label>
+        <label for="inchargename" class="form-label" style="width: 200px; text-align: left;"><b>Incharge</b></label>
             <select name="incharge" class="form-control">
             @foreach($incharge as $shows)
                 <option value="{{$shows->id}}">{{$shows->incharge_name}}</option>

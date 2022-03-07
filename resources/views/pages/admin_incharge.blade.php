@@ -21,7 +21,7 @@
 </div>  
 </nav>
 <div class="container col-md-8 offset-md-3 mt-5">
-<a href="#" class="btn btn-primary ml-5" id="myBtn" >Add</a>
+<a href="{{route('add_new_incharge')}}" class="btn btn-primary ml-5" id="myBtn" >Add</a>
 <a href="{{route('admin')}}" class="btn btn-secondary offset-md-9">Back</a>
 
 <!-- Table -->
@@ -50,30 +50,7 @@
     </tbody>
     </table>
    </div>
-<!-- <div class="grid-container mt-3  ">
-    <table id="example" class="table table-hover table-bordered" style="width:115%">
-    <thead class="table-primary table-sm border-dark">
-        <tr>
-        <th >ID</th>
-        <th >Incharge Name</th>
-        <th >Department Name</th>
-        <th class="text-center">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach ($show as $lists)
-        <tr>
-        <td>{{$lists->id}}</td> 
-        <td>{{$lists->incharge_name}}</td>        
-        <td>{{$lists->department_name}} </td>
-        <td class="text-center"><a href="{{route('edit_incharge', $lists->id)}}" class="me-1"><i class="fas fa-edit"></i></a><a href="{{route('delete_incharge', $lists->id)}}" onclick="return confirm('Are you sure you want to delete it?');"><i class="fas fa-trash-alt"></i></a></td>
-        </tr>
-    @endforeach
 
-    </tbody>
-    </table> -->
-
-    @include('Modals.add_incharge')
 
 </div>
 
@@ -81,27 +58,6 @@
 
 @section('scripts')
 
-<script>
-var modal = document.getElementById("myModal");
-
-var btn = document.getElementById("myBtn");
-
-var span = document.getElementsByClassName("close")[0];
-
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
 
   <script>
     $(document).ready(function() {
