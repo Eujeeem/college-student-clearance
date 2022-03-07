@@ -36,6 +36,13 @@ class AdminController extends Controller
         return view('pages.admin_incharge', ['show' => $show])->with("department",$department);
     } 
 
+    public function add_new_department(Request $request){
+
+        $incharge = Incharge::all();
+    	return view("Modals.add_department")->with("incharge",$incharge);       
+
+
+    }   
     public function add_department(Request $request){
         $department = new Department();
         $department->department_name = $request->department;

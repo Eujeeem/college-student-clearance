@@ -39,6 +39,8 @@ Route::middleware(['logoutcheck', 'manageAdminAccess'])->group(function(){
     
     Route::post('/admin/departments/add', [AdminController::class, "add_department"])->name("add_department");
 
+    Route::get('/admin/departments/new-department/add', [AdminController::class, "add_new_department"])->name("add_new_department");
+
     Route::get('/admin/departments/delete', [AdminController::class, "delete_department"])->name("delete_department");      
 
     Route::get('/admin/department/edit/{id}', [AdminController::class, "edit_department"])->name("edit_department");

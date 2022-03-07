@@ -8,7 +8,19 @@
 @section('content')
 
 
-@include('sections.header')
+@include('sections.header2')
+
+<nav class="side-nav navbar-dark bg-primary" 
+  style="min-height: 1000px;width: 15%;"> <img src="/images/logo.png " style="min-height: 130px;width: 80%; margin-left:10%"><br><br><br>
+
+
+<div>
+<a href="{{route('admin')}}"  class="btn btn-primary text-dark" style="width:100%; border-radius:0; box-shadow:0px 0px">Dashboard</a>
+<a href="{{route('admin_students')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">Students</a>
+<a href="{{route('admin_departments')}}"  class="btn btn-light text-dark round-0"style="width:100%; border-radius:0; box-shadow:0px 0px  font-size:20px;"><strong>Departments</strong></a>
+<a href="{{route('admin_incharge')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">In-charge</a>
+</div>  
+</nav>
 
 
 <div class="container add_student mt-5">
@@ -32,7 +44,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="{{route('admin_departments')}}" class="btn btn-danger ms-3">Cancel</a>
+        <a href="{{route('admin_departments')}}" class="btn btn-danger">Cancel</a>
     </form>
     
 
