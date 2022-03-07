@@ -1,7 +1,22 @@
+@extends('layout.master')
+
+@section('title')
+    Admin - Add Student
+@endsection
+
+
+@section('content')
+
+
+@include('sections.header2')
+
+
+
+
 <!-- The Modal -->
-<div id="myModal" class="modal ">
+<div id="" class="">
             <!-- Modal content -->
-            <div class="modal-content add_student col-md-5" >
+            <div class=" add_student col-md-5" >
                 <span class="close">&times;</span>
                 
                     <form action="{{route('add_student')}}" method="post" >

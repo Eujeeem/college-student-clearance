@@ -4,7 +4,7 @@
             <div class="modal-content add_department">
                 <span class="close">&times;</span>
                 
-                    <form action="{{route('edit_notes', $lists->id)}}" method="post">
+                    <form action="#" method="post">
                     @csrf
                         <div class="mb-3">
                         <label for="notes" class="form-label">Notes</label>

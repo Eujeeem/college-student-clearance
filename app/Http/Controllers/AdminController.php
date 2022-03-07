@@ -136,7 +136,13 @@ class AdminController extends Controller
         $incharge->save();
     	return redirect()->route('admin_incharge');       
 
-    }    
+    }
+    
+    public function add_new_student(Request $request){
+        return view("Modals.add_student");
+
+    }   
+
 
     public function add_student(Request $request){
         $student = new Student();

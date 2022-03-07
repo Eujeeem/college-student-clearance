@@ -57,6 +57,8 @@ Route::middleware(['logoutcheck', 'manageAdminAccess'])->group(function(){
 
     Route::post('/admin/student/add', [AdminController::class, "add_student"])->name("add_student");
 
+    Route::get('/admin/student/new-student/add', [AdminController::class, "add_new_student"])->name("add_new_student");
+
     Route::get('/admin/student/edit{id}', [AdminController::class, "edit_student"])->name("edit_student");
 
     Route::post('/admin/student/update{id}', [AdminController::class, "update_student"])->name("update_student");

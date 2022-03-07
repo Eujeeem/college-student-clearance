@@ -1,16 +1,16 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-0 justify-content-end pl-5">
 
-  @php
+@php
 $count = 1
 @endphp 
 @foreach ($show as $lists) 
     
     @if ($count == 1)
     @if ($lists->incharge_id == session('incharge_id'))
-    <?php
+    @php
         $fullname = $lists->incharge_name;
-    ?>    
+        @endphp
 @php
 $count = $count+1
 @endphp
@@ -20,7 +20,7 @@ $count = $count+1
 
     <div class="dropdown ">
   <button class="btn btn-primary dropdown-toggle p-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-  <img src="{{ Avatar::create($fullname)->toBase64() }}" class="avatar" /> {{$fullname}}
+  <img src="{{ Avatar::create('Sample Name')->toBase64() }}" class="avatar" /> Sample Name
   </button>
   
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

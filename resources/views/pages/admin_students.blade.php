@@ -23,7 +23,7 @@
 </nav>
   
 <div class="container col-md-8 offset-md-3 mt-5 ">
-<a href="#" class="btn btn-primary ml-5"  id="myBtn " >Add</a>
+<a href="{{route('add_new_student')}}" class="btn btn-primary ml-5"  >Add</a>
 <a href="{{route('admin')}}" class="btn btn-secondary offset-md-7">Back</a>
 <a href="{{route('view')}}" class="btn btn-warning md-3"  id="myBtn " >Import</a>
 
@@ -89,7 +89,7 @@
     </tbody>
     </table> -->
 
-    @include('Modals.add_student')
+
     
 </div>
 
@@ -98,27 +98,6 @@
 
 @section('scripts')
 
-<script>
-var modal = document.getElementById("myModal");
-
-var btn = document.getElementById("myBtn");
-
-var span = document.getElementsByClassName("close")[0];
-
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
 <script>
     $(document).ready(function() {
         $('#example').DataTable();
