@@ -46,7 +46,7 @@ $count = $count+1
 </div>
 
 
-<div class="container box " style="width:80%; margin-left: 18%"> 
+<div class="container box mb-5 " style="width:80%; margin-left: 18%"> 
 <div class="float-right"> 
 <button type="button" onclick="window.print()" class="btn btn-dark btn-rounded mb-4 "><i class="fas fa-print"></i> Print</button>
 </div>
@@ -112,7 +112,7 @@ $count = $count+1
     @include('Modals.edit_notes')
 
 
-
+    </div>
 </div>
 
 @endsection
