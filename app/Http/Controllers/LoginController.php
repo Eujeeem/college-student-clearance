@@ -66,7 +66,7 @@ class LoginController extends Controller
         ->get();
         return view ('pages.incharge',['show' => $show]);
     }
-    public function incharge_home_BSIT_FIRST(){
+    public function incharge_home_first(){
         
         $show = DB::table('lists')
         ->join('departments', 'lists.department_id', '=', 'departments.id')
@@ -75,7 +75,7 @@ class LoginController extends Controller
         ->get();
         return view ('pages.year_first',['show' => $show]);
     }
-    public function incharge_home_BSIT_SECOND(){
+    public function incharge_home_second(){
         
         $show = DB::table('lists')
         ->join('departments', 'lists.department_id', '=', 'departments.id')
@@ -84,7 +84,7 @@ class LoginController extends Controller
         ->get();
         return view ('pages.year_second',['show' => $show]);
     }
-    public function incharge_home_BSIT_THIRD(){
+    public function incharge_home_third(){
         
         $show = DB::table('lists')
         ->join('departments', 'lists.department_id', '=', 'departments.id')
@@ -93,7 +93,7 @@ class LoginController extends Controller
         ->get();
         return view ('pages.year_third',['show' => $show]);
     }
-    public function incharge_home_BSIT_FOURTH(){
+    public function incharge_home_forth(){
         
         $show = DB::table('lists')
         ->join('departments', 'lists.department_id', '=', 'departments.id')
@@ -102,15 +102,7 @@ class LoginController extends Controller
         ->get();
         return view ('pages.year_fourth',['show' => $show]);
     }
-    public function incharge_home_BSIT_ALL(){
-        
-        $show = DB::table('lists')
-        ->join('departments', 'lists.department_id', '=', 'departments.id')
-        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
-        ->join('students', 'students.id', '=', 'lists.student_id')
-        ->get();
-        return view ('pages.year_all',['show' => $show]);
-    }
+
     public function incharge_home_BSIT(){
         
         $show = DB::table('lists')
@@ -127,7 +119,6 @@ class LoginController extends Controller
         ->join('departments', 'lists.department_id', '=', 'departments.id')
         ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
         ->join('students', 'students.id', '=', 'lists.student_id')
-        // ->where('students.course_name', 'Bachelor of Science in Hospitality Management')
         ->get();
         return view ('pages.incharge_BSHM',['show' => $show]);
     }

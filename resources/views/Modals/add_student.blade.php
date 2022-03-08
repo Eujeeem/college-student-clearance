@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('title')
-    Admin - Add Student
+    Admin - Add New Student
 @endsection
 
 
@@ -44,15 +44,17 @@
                         </div> 
                         <div class="mb-3">
                         <label for="contactnumber" class="form-label" style="width: 200px; text-align: left;">Contact Number</label>
-                        <input type="text" class="form-control" name="contactnumber" required="required">
+                        <input type="number" class="form-control" name="contactnumber" required="required">
                         </div>                                               
                         <div class="mb-3">
                         <label for="coursename" class="form-label" style="width: 200px; text-align: left;">Course Name</label>
                             <select name="course_name" class="form-control" required>
                             <option value="" disabled selected hidden>Choose a Course</option>
-                            <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
-                            <option value="Bachelor of Science in Social Work">Bachelor of Science in Social Work</option>  
+                            <option value="Bachelor of Science in Business Administration">Bachelor of Science in Business Administration</option>  
                             <option value="Bachelor of Elementary Education">Bachelor of Elementary Education</option>                          
+                            <option value="Bachelor of Secondary Education">Bachelor of Secondary Education</option>
+                            <option value="Bachelor of Science in Social Work">Bachelor of Science in Social Work</option>
+                            <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
                             <option value="Bachelor of Science in Hospitality Management">Bachelor of Science in Hospitality Management</option>
                             </select>
                         </div>

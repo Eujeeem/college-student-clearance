@@ -92,11 +92,11 @@ Route::middleware(['logoutcheck', 'manageInchargeAccess'])->group(function(){
     Route::get('/incharge', [LoginController::class, "incharge_home"])->name("incharge"); 
     Route::get('/edit-status/{id}', [InchargeController::class, "edit_status"])->name("edit_status");
     Route::post('/update/notes{id}', [InchargeController::class, "edit_notes"])->name("edit_notes");
-    Route::get('/incharge/BSIT/FIRST', [LoginController::class, "incharge_home_BSIT_FIRST"])->name("year_first");
-    Route::get('/incharge/BSIT/SECOND', [LoginController::class, "incharge_home_BSIT_SECOND"])->name("year_second");
-    Route::get('/incharge/BSIT/THIRD', [LoginController::class, "incharge_home_BSIT_THIRD"])->name("year_third");
-    Route::get('/incharge/BSIT/FOURTH', [LoginController::class, "incharge_home_BSIT_FOURTH"])->name("year_fourth");
-    Route::get('/incharge/BSIT/ALL', [LoginController::class, "incharge_home_BSIT_ALL"])->name("year_all");
+    Route::get('/incharge/1st-Year', [LoginController::class, "incharge_home_first"])->name("incharge_home_first");
+    Route::get('/incharge/2nd-Year', [LoginController::class, "incharge_home_second"])->name("incharge_home_second");
+    Route::get('/incharge/3rd-Year', [LoginController::class, "incharge_home_third"])->name("incharge_home_third");
+    Route::get('/incharge/4th-Year', [LoginController::class, "incharge_home_forth"])->name("incharge_home_forth");
+
     
 });
 

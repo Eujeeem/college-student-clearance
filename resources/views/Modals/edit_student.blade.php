@@ -48,7 +48,7 @@
                         <div class="mb-3">
                         <label for="coursename" class="form-label" style="width: 200px; text-align: left;">Course Name</label>
                             <select name="course_name" value="{{$lists->course_name}}" class="form-control">
-                            <option value="{{$lists->course_name}}">{{$lists->course_name}}</option>
+                            <option value="" disabled selected hidden>{{$lists->course_name}}</option>
                             <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
                             <option value="Bachelor of Science in Social Work">Bachelor of Science in Social Work</option>  
                             <option value="Bachelor of Elementary Education">Bachelor of Elementary Education</option>                          
@@ -60,7 +60,7 @@
                         <div class="mb-3">
                         <label for="year" class="form-label" style="width: 200px; text-align: left;">Year level</label>
                             <select name="year" class="form-control">
-                            <option value="{{$lists->student_year}}">{{$lists->student_year}}</option>
+                            <option value="" disabled selected hidden>{{$lists->student_year}}</option>
                             <option value="1st Year">1st Year</option>
                             <option value="2nd Year">2nd Year</option>
                             <option value="3rd Year">3rd Year</option>  

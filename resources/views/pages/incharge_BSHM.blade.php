@@ -76,7 +76,8 @@ $count = $count+1
 
     @foreach ($show as $lists)  
 
-      @if ($lists->incharge_id == session()->get('incharge_id'))   
+      @if ($lists->incharge_id == session()->get('incharge_id'))
+      @if ($lists->course_name == 'Bachelor of Science in Hospitality Management')
         <tr>
         <td>{{$lists->student_lname}}, {{$lists->student_fname}} {{$lists->student_mname}}. </td>
         <td>{{$lists->course_name}}</td>
@@ -100,7 +101,7 @@ $count = $count+1
         <td>{{$lists->date_cleared}}</td>
         </tr>
       @endif 
-        
+      @endif   
     @endforeach
 
     </tbody>

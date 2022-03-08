@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('title')
-    Admin - Add Student
+    Admin - Add Departments
 @endsection
 
 
@@ -54,3 +54,5 @@
             </div>
 
         </div>
+
+@endsection
