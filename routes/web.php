@@ -87,8 +87,19 @@ Route::middleware(['logoutcheck', 'manageInchargeAccess'])->group(function(){
     Route::get('/incharge/BSED', [LoginController::class, "incharge_home_BSED"])->name("incharge_BSED");
     Route::get('/incharge/BEED', [LoginController::class, "incharge_home_BEED"])->name("incharge_BEED");
     Route::get('/incharge/BSSW', [LoginController::class, "incharge_home_BSSW"])->name("incharge_BSSW");
+
     Route::get('/incharge/BSHM', [LoginController::class, "incharge_home_BSHM"])->name("incharge_BSHM");
+    Route::get('/incharge/BSHM/1st-Year', [LoginController::class, "incharge_BSHM_first_year"])->name("incharge_BSHM_first_year");
+    Route::get('/incharge/BSHM/2nd-Year', [LoginController::class, "incharge_BSHM_second_year"])->name("incharge_BSHM_second_year");
+    Route::get('/incharge/BSHM/3rd-Year', [LoginController::class, "incharge_BSHM_third_year"])->name("incharge_BSHM_third_year");
+    Route::get('/incharge/BSHM/4th-Year', [LoginController::class, "incharge_BSHM_forth_year"])->name("incharge_BSHM_forth_year");
+
     Route::get('/incharge/BSIT', [LoginController::class, "incharge_home_BSIT"])->name("incharge_BSIT");
+    Route::get('/incharge/BSIT/1st-Year', [LoginController::class, "incharge_BSIT_first_year"])->name("incharge_BSIT_first_year");
+    Route::get('/incharge/BSIT/2nd-Year', [LoginController::class, "incharge_BSIT_second_year"])->name("incharge_BSIT_second_year");
+    Route::get('/incharge/BSIT/3rd-Year', [LoginController::class, "incharge_BSIT_third_year"])->name("incharge_BSIT_third_year");
+    Route::get('/incharge/BSIT/4th-Year', [LoginController::class, "incharge_BSIT_forth_year"])->name("incharge_BSIT_forth_year");
+    
     Route::get('/incharge', [LoginController::class, "incharge_home"])->name("incharge"); 
     Route::get('/edit-status/{id}', [InchargeController::class, "edit_status"])->name("edit_status");
     Route::post('/update/notes{id}', [InchargeController::class, "edit_notes"])->name("edit_notes");
