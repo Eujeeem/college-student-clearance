@@ -215,6 +215,47 @@ class LoginController extends Controller
         ->get();
         return view ('pages.incharge_BSSW',['show' => $show]);
     }
+
+    public function incharge_BSSW_first_year(){
+        
+        $show = DB::table('lists')
+        ->join('departments', 'lists.department_id', '=', 'departments.id')
+        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
+        ->join('students', 'students.id', '=', 'lists.student_id')
+        ->get();
+        return view ('pages.incharge_BSSW_first_year',['show' => $show]);
+    }
+
+    public function incharge_BSSW_second_year(){
+        
+        $show = DB::table('lists')
+        ->join('departments', 'lists.department_id', '=', 'departments.id')
+        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
+        ->join('students', 'students.id', '=', 'lists.student_id')
+        ->get();
+        return view ('pages.incharge_BSSW_second_year',['show' => $show]);
+    }
+
+    public function incharge_BSSW_third_year(){
+        
+        $show = DB::table('lists')
+        ->join('departments', 'lists.department_id', '=', 'departments.id')
+        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
+        ->join('students', 'students.id', '=', 'lists.student_id')
+        ->get();
+        return view ('pages.incharge_BSSW_third_year',['show' => $show]);
+    }
+
+    public function incharge_BSSW_forth_year(){
+        
+        $show = DB::table('lists')
+        ->join('departments', 'lists.department_id', '=', 'departments.id')
+        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
+        ->join('students', 'students.id', '=', 'lists.student_id')
+        ->get();
+        return view ('pages.incharge_BSSW_forth_year',['show' => $show]);
+    }
+
     public function incharge_home_BSED(){
         
         $show = DB::table('lists')
@@ -225,6 +266,47 @@ class LoginController extends Controller
         ->get();
         return view ('pages.incharge_BSED',['show' => $show]);
     }
+
+    public function incharge_BSED_first_year(){
+        
+        $show = DB::table('lists')
+        ->join('departments', 'lists.department_id', '=', 'departments.id')
+        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
+        ->join('students', 'students.id', '=', 'lists.student_id')
+        ->get();
+        return view ('pages.incharge_BSED_first_year',['show' => $show]);
+    }
+
+    public function incharge_BSED_second_year(){
+        
+        $show = DB::table('lists')
+        ->join('departments', 'lists.department_id', '=', 'departments.id')
+        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
+        ->join('students', 'students.id', '=', 'lists.student_id')
+        ->get();
+        return view ('pages.incharge_BSED_second_year',['show' => $show]);
+    }
+
+    public function incharge_BSED_third_year(){
+        
+        $show = DB::table('lists')
+        ->join('departments', 'lists.department_id', '=', 'departments.id')
+        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
+        ->join('students', 'students.id', '=', 'lists.student_id')
+        ->get();
+        return view ('pages.incharge_BSED_third_year',['show' => $show]);
+    }
+
+    public function incharge_BSED_forth_year(){
+        
+        $show = DB::table('lists')
+        ->join('departments', 'lists.department_id', '=', 'departments.id')
+        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
+        ->join('students', 'students.id', '=', 'lists.student_id')
+        ->get();
+        return view ('pages.incharge_BSED_forth_year',['show' => $show]);
+    }
+
     public function incharge_home_BEED(){
         
         $show = DB::table('lists')

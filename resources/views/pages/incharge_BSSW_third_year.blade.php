@@ -17,8 +17,8 @@
 <a href="{{route('incharge_BSHM')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">BSHM</a>
 <a href="{{route('incharge_BSBA')}}"  class="btn btn-primary text-dark"style="width:100%; border-radius:0; box-shadow:0px 0px">BSBA</a>
 <a href="{{route('incharge_BEED')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">BEED</a>
-<a href="{{route('incharge_BSSW')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">BSSW</a>
-<a href="{{route('incharge_BSED')}}"  class="btn btn-light text-dark "style="width:100%; font-size:20px; border-radius:0; box-shadow:0px 0px"><strong>BSED</strong></a>
+<a href="{{route('incharge_BSSW')}}"  class="btn btn-light text-dark "style="width:100%; font-size:20px; border-radius:0; box-shadow:0px 0px"><strong>BSSW</strong></a>
+<a href="{{route('incharge_BSED')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">BSED</a>
 <a href="{{route('incharge')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">ALL</a>  
 </div>  
 </nav>
@@ -51,16 +51,17 @@ $count = $count+1
 <button type="button" onclick="window.print()" class="btn btn-dark btn-rounded mb-4 "><i class="fas fa-print"></i> Print</button>
 </div>
 <div class="button">
-<a href="{{route('incharge_BSED_first_year')}}"  class="btn btn-primary text-white "style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px ">1ST YEAR</a>
-<a href="{{route('incharge_BSED_second_year')}}"  class="btn btn-primary text-white "style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px ">2nd YEAR</a>
-<a href="{{route('incharge_BSED_third_year')}}"  class="btn btn-primary text-white"style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px ">3RD YEAR</a>
-<a href="{{route('incharge_BSED_forth_year')}}"  class="btn btn-primary text-white "style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px ">4TH YEAR</a>
-<a href="{{route('incharge_BSED')}}"  class="btn text-primary "style="width:100px; border-radius: 5px 5px 0px 0px; box-shadow:0px 0px; background-color: #ccc "><strong>All Year</strong></a>
+<a href="{{route('incharge_BSSW_first_year')}}"  class="btn btn-primary text-white "style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px ">1ST YEAR</a>
+<a href="{{route('incharge_BSSW_second_year')}}"  class="btn btn-primary text-white "style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px ">2nd YEAR</a>
+<a href="{{route('incharge_BSSW_third_year')}}"  class="btn text-primary"style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px; background-color: #ccc"><strong>3RD YEAR</strong></a>
+<a href="{{route('incharge_BSSW_forth_year')}}"  class="btn btn-primary text-white "style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px ">4TH YEAR</a>
+<a href="{{route('incharge_BSSW')}}"  class="btn btn-primary text-white"style="width:100px; border-radius: 5px 5px 0px 0px; box-shadow:0px 0px; ">All Year</a>
+
 
 
 </div>
 
-<div class="container box2 "> 
+<div class="container box2 " > 
     <table id="example" class="table table-bordered table-striped">
     <thead class="table-primary table-sm">
     <tr>
@@ -76,8 +77,9 @@ $count = $count+1
 
     @foreach ($show as $lists)  
 
-      @if ($lists->incharge_id == session()->get('incharge_id'))   
-      @if ($lists->course_name == 'Bachelor of Secondary Education')  
+      @if ($lists->incharge_id == session()->get('incharge_id')) 
+      @if ($lists->course_name == 'Bachelor of Science in Social Work') 
+      @if ($lists->student_year == '3rd Year')     
         <tr>
         <td>{{$lists->student_lname}}, {{$lists->student_fname}} {{$lists->student_mname}}. </td>
         <td>{{$lists->course_name}}</td>
@@ -102,79 +104,12 @@ $count = $count+1
         </tr>
       @endif 
       @endif 
+      @endif  
     @endforeach
 
     </tbody>
     </table> 
 
- 
-
-
-<!-- <div class="container col-md-6 offset-md-3 mt-5">
-
-<div class="mt-5">
-    <h3 class="text-center">
-
-    @php
-$count = 1
-@endphp 
-@foreach ($show as $lists)  
-  @if ($lists->incharge_id == session()->get('incharge_id'))
-    @if ($count == 1)
-        <b>{{$lists->department_name}}</b>
-@php
-$count = $count+1
-@endphp
-    @endif  
-  @endif 
-@endforeach  
-
-    </h3> 
-    <br>
-
-</div>
-
-
-    <table class="table table-hover table-bordered">
-    <thead class="table-primary table-sm">
-        <tr>
-        <th scope="col">Student Name</th>
-        <th scope="col">Status</th>
-        <th scope="col">Notes</th>
-        <th scope="col">Date Cleared</th>
-        </tr>
-    </thead>
-    <tbody>
-
-    @foreach ($show as $lists)  
-
-      @if ($lists->incharge_id == session()->get('incharge_id'))   
-        <tr>
-        <td>{{$lists->student_lname}}, {{$lists->student_fname}} {{$lists->student_mname}}. </td>
-
-        @if($lists->status == "Pending")
-            <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-warning">{{$lists->status}}</a></td>
-            @if($lists->notes != "")
-                <td>{{$lists->notes}}</td>
-            @elseif ($lists->notes == "")
-                <td><a href="#" class="btn btn-primary" id="myBtn" >Add Note</a></td>
-            @endif
-        
-        @elseif ($lists->status == "Cleared")
-            <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-success">{{$lists->status}}</a></td>
-            <td>{{$lists->notes}}</td>
-        @endif
-
-
-
-        <td>{{$lists->date_cleared}}</td>
-        </tr>
-      @endif 
-        
-    @endforeach
-
-    </tbody>
-    </table> -->
     
     @include('Modals.edit_notes')
 
