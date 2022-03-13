@@ -39,10 +39,10 @@
      <thead>
       <tr>
        <th width="10%">Student ID</th>
-       <th width="15%">Student Name</th>
-       <th width="15%">Course</th>
+       <th width="20%">Student Name</th>
+       <th width="20%">Course</th>
        <th width="10%">Year</th>
-       <th width="20%">Contact Number</th>
+       <th width="10%">Contact Number</th>
        <th width="10%">Action</th>
       </tr>
      </thead>

@@ -84,8 +84,19 @@ Route::middleware(['logoutcheck', 'manageStudentAccess'])->group(function(){
 Route::middleware(['logoutcheck', 'manageInchargeAccess'])->group(function(){
     
     Route::get('/incharge/BSBA', [LoginController::class, "incharge_home_BSBA"])->name("incharge_BSBA");
+    Route::get('/incharge/BSBA/1st-Year', [LoginController::class, "incharge_BSBA_first_year"])->name("incharge_BSBA_first_year");
+    Route::get('/incharge/BSBA/2nd-Year', [LoginController::class, "incharge_BSBA_second_year"])->name("incharge_BSBA_second_year");
+    Route::get('/incharge/BSBA/3rd-Year', [LoginController::class, "incharge_BSBA_third_year"])->name("incharge_BSBA_third_year");
+    Route::get('/incharge/BSBA/4th-Year', [LoginController::class, "incharge_BSBA_forth_year"])->name("incharge_BSBA_forth_year");
+
     Route::get('/incharge/BSED', [LoginController::class, "incharge_home_BSED"])->name("incharge_BSED");
+
     Route::get('/incharge/BEED', [LoginController::class, "incharge_home_BEED"])->name("incharge_BEED");
+    Route::get('/incharge/BEED/1st-Year', [LoginController::class, "incharge_BEED_first_year"])->name("incharge_BEED_first_year");
+    Route::get('/incharge/BEED/2nd-Year', [LoginController::class, "incharge_BEED_second_year"])->name("incharge_BEED_second_year");
+    Route::get('/incharge/BEED/3rd-Year', [LoginController::class, "incharge_BEED_third_year"])->name("incharge_BEED_third_year");
+    Route::get('/incharge/BEED/4th-Year', [LoginController::class, "incharge_BEED_forth_year"])->name("incharge_BEED_forth_year");
+
     Route::get('/incharge/BSSW', [LoginController::class, "incharge_home_BSSW"])->name("incharge_BSSW");
 
     Route::get('/incharge/BSHM', [LoginController::class, "incharge_home_BSHM"])->name("incharge_BSHM");
