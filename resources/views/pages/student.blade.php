@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('title')
-    Student - Home 
+    Home
 @endsection
 
 @section('content')

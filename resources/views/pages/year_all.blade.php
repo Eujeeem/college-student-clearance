@@ -48,6 +48,7 @@ $count = $count+1
 
 <div class="container box "> 
 <div class="float-right"> 
+<button type="button" onclick="window.print()" class="btn btn-dark btn-rounded mb-4 "><i class="fas fa-print"></i> Print</button>
 </div>
 <div class="button">
 <a href="{{route('year_first')}}"  class="btn btn-primary text-white"style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px ">1ST YEAR</a>
