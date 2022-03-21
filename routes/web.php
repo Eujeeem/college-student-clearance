@@ -90,10 +90,6 @@ Route::middleware(['logoutcheck', 'manageInchargeAccess'])->group(function(){
     Route::get('/incharge/BSBA/4th-Year', [LoginController::class, "incharge_BSBA_forth_year"])->name("incharge_BSBA_forth_year");
 
     Route::get('/incharge/BSED', [LoginController::class, "incharge_home_BSED"])->name("incharge_BSED");
-    Route::get('/incharge/BSED/1st-Year', [LoginController::class, "incharge_BSED_first_year"])->name("incharge_BSED_first_year");
-    Route::get('/incharge/BSED/2nd-Year', [LoginController::class, "incharge_BSED_second_year"])->name("incharge_BSED_second_year");
-    Route::get('/incharge/BSED/3rd-Year', [LoginController::class, "incharge_BSED_third_year"])->name("incharge_BSED_third_year");
-    Route::get('/incharge/BSED/4th-Year', [LoginController::class, "incharge_BSED_forth_year"])->name("incharge_BSED_forth_year");
 
     Route::get('/incharge/BEED', [LoginController::class, "incharge_home_BEED"])->name("incharge_BEED");
     Route::get('/incharge/BEED/1st-Year', [LoginController::class, "incharge_BEED_first_year"])->name("incharge_BEED_first_year");
@@ -102,10 +98,6 @@ Route::middleware(['logoutcheck', 'manageInchargeAccess'])->group(function(){
     Route::get('/incharge/BEED/4th-Year', [LoginController::class, "incharge_BEED_forth_year"])->name("incharge_BEED_forth_year");
 
     Route::get('/incharge/BSSW', [LoginController::class, "incharge_home_BSSW"])->name("incharge_BSSW");
-    Route::get('/incharge/BSSW/1st-Year', [LoginController::class, "incharge_BSSW_first_year"])->name("incharge_BSSW_first_year");
-    Route::get('/incharge/BSSW/2nd-Year', [LoginController::class, "incharge_BSSW_second_year"])->name("incharge_BSSW_second_year");
-    Route::get('/incharge/BSSW/3rd-Year', [LoginController::class, "incharge_BSSW_third_year"])->name("incharge_BSSW_third_year");
-    Route::get('/incharge/BSSW/4th-Year', [LoginController::class, "incharge_BSSW_forth_year"])->name("incharge_BSSW_forth_year");
 
     Route::get('/incharge/BSHM', [LoginController::class, "incharge_home_BSHM"])->name("incharge_BSHM");
     Route::get('/incharge/BSHM/1st-Year', [LoginController::class, "incharge_BSHM_first_year"])->name("incharge_BSHM_first_year");
