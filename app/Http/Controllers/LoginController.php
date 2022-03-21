@@ -418,3 +418,4 @@ class LoginController extends Controller
         return view ('pages.student',['show' => $show]);
     }    
 }
+

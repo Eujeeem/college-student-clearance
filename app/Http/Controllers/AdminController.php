@@ -167,15 +167,15 @@ class AdminController extends Controller
         $student->save();
         $student->id;
         
-        $departments = DB::table('departments')->get();
+        $department = DB::table('departments')->where('department', $department)->get();
 
 
-        foreach($departments as $department){
+        foreach($department as $departments){
             $list = new Lists();
             $list->status = "Pending";
             $list->year = "2021-2022";
             $list->student_id = $student->id;
-            $list->department_id = $department->id;
+            $list->department_id = $departments->id;
             $list->save();       
         }
 
@@ -288,13 +288,13 @@ class AdminController extends Controller
         // $list->department_id = 14;
         // $list->save();
 
-        $pass = Hash::make($student->id);
-        $user = new User();
-        $user->username = $student->id;
-        $user->password = $pass;
-        $user->student_id = $student->id;
-        $user->type="student";
-        $user->save();
+        // $pass = Hash::make($student->id);
+        // $user = new User();
+        // $user->username = $student->id;
+        // $user->password = $pass;
+        // $user->student_id = $student->id;
+        // $user->type="student";
+        // $user->save();
         return redirect()->route('admin_students');
     }
 
