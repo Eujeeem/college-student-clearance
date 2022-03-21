@@ -166,103 +166,127 @@ class AdminController extends Controller
         $student->student_contactnumber	 = $request->contactnumber;
         $student->save();
         $student->id;
+        
+        $departments = DB::table('departments')->get();
 
-        $list = new Lists();
-        $list->status = "Pending";
-        $list->year = "2021-2022";
-        $list->student_id = $student->id;
-        $list->department_id = 1;
-        $list->save();
 
-        $list = new Lists();
-        $list->status = "Pending";
-        $list->year = "2021-2022";
-        $list->student_id = $student->id;
-        $list->department_id = 2;
-        $list->save();
+        foreach($departments as $department){
+            $list = new Lists();
+            $list->status = "Pending";
+            $list->year = "2021-2022";
+            $list->student_id = $student->id;
+            $list->department_id = $department->id;
+            $list->save();       
+        }
 
-        $list = new Lists();
-        $list->status = "Pending";
-        $list->year = "2021-2022";
-        $list->student_id = $student->id;
-        $list->department_id = 3;
-        $list->save();
 
-        $list = new Lists();
-        $list->status = "Pending";
-        $list->year = "2021-2022";
-        $list->student_id = $student->id;
-        $list->department_id = 4;
-        $list->save();
 
-        $list = new Lists();
-        $list->status = "Pending";
-        $list->year = "2021-2022";
-        $list->student_id = $student->id;
-        $list->department_id = 5;
-        $list->save();
 
-        $list = new Lists();
-        $list->status = "Pending";
-        $list->year = "2021-2022";
-        $list->student_id = $student->id;
-        $list->department_id = 6;
-        $list->save();
 
-        $list = new Lists();
-        $list->status = "Pending";
-        $list->year = "2021-2022";
-        $list->student_id = $student->id;
-        $list->department_id = 7;
-        $list->save();
 
-        $list = new Lists();
-        $list->status = "Pending";
-        $list->year = "2021-2022";
-        $list->student_id = $student->id;
-        $list->department_id = 8;
-        $list->save();
 
-        $list = new Lists();
-        $list->status = "Pending";
-        $list->year = "2021-2022";
-        $list->student_id = $student->id;
-        $list->department_id = 9;
-        $list->save();
-        $list = new Lists();
-        $list->status = "Pending";
-        $list->year = "2021-2022";
-        $list->student_id = $student->id;
-        $list->department_id = 10;
-        $list->save();
 
-        $list = new Lists();
-        $list->status = "Pending";
-        $list->year = "2021-2022";
-        $list->student_id = $student->id;
-        $list->department_id = 11;
-        $list->save();
 
-        $list = new Lists();
-        $list->status = "Pending";
-        $list->year = "2021-2022";
-        $list->student_id = $student->id;
-        $list->department_id = 12;
-        $list->save();
 
-        $list = new Lists();
-        $list->status = "Pending";
-        $list->year = "2021-2022";
-        $list->student_id = $student->id;
-        $list->department_id = 13;
-        $list->save();
 
-        $list = new Lists();
-        $list->status = "Pending";
-        $list->year = "2021-2022";
-        $list->student_id = $student->id;
-        $list->department_id = 14;
-        $list->save();
+
+
+        // $list = new Lists();
+        // $list->status = "Pending";
+        // $list->year = "2021-2022";
+        // $list->student_id = $student->id;
+        // $list->department_id = 1;
+        // $list->save();
+
+        // $list = new Lists();
+        // $list->status = "Pending";
+        // $list->year = "2021-2022";
+        // $list->student_id = $student->id;
+        // $list->department_id = 2;
+        // $list->save();
+
+        // $list = new Lists();
+        // $list->status = "Pending";
+        // $list->year = "2021-2022";
+        // $list->student_id = $student->id;
+        // $list->department_id = 3;
+        // $list->save();
+
+        // $list = new Lists();
+        // $list->status = "Pending";
+        // $list->year = "2021-2022";
+        // $list->student_id = $student->id;
+        // $list->department_id = 4;
+        // $list->save();
+
+        // $list = new Lists();
+        // $list->status = "Pending";
+        // $list->year = "2021-2022";
+        // $list->student_id = $student->id;
+        // $list->department_id = 5;
+        // $list->save();
+
+        // $list = new Lists();
+        // $list->status = "Pending";
+        // $list->year = "2021-2022";
+        // $list->student_id = $student->id;
+        // $list->department_id = 6;
+        // $list->save();
+
+        // $list = new Lists();
+        // $list->status = "Pending";
+        // $list->year = "2021-2022";
+        // $list->student_id = $student->id;
+        // $list->department_id = 7;
+        // $list->save();
+
+        // $list = new Lists();
+        // $list->status = "Pending";
+        // $list->year = "2021-2022";
+        // $list->student_id = $student->id;
+        // $list->department_id = 8;
+        // $list->save();
+
+        // $list = new Lists();
+        // $list->status = "Pending";
+        // $list->year = "2021-2022";
+        // $list->student_id = $student->id;
+        // $list->department_id = 9;
+        // $list->save();
+        // $list = new Lists();
+        // $list->status = "Pending";
+        // $list->year = "2021-2022";
+        // $list->student_id = $student->id;
+        // $list->department_id = 10;
+        // $list->save();
+
+        // $list = new Lists();
+        // $list->status = "Pending";
+        // $list->year = "2021-2022";
+        // $list->student_id = $student->id;
+        // $list->department_id = 11;
+        // $list->save();
+
+        // $list = new Lists();
+        // $list->status = "Pending";
+        // $list->year = "2021-2022";
+        // $list->student_id = $student->id;
+        // $list->department_id = 12;
+        // $list->save();
+
+        // $list = new Lists();
+        // $list->status = "Pending";
+        // $list->year = "2021-2022";
+        // $list->student_id = $student->id;
+        // $list->department_id = 13;
+        // $list->save();
+
+        // $list = new Lists();
+        // $list->status = "Pending";
+        // $list->year = "2021-2022";
+        // $list->student_id = $student->id;
+        // $list->department_id = 14;
+        // $list->save();
 
         $pass = Hash::make($student->id);
         $user = new User();

@@ -20,7 +20,7 @@ $count = $count+1
 
     <div class="dropdown ">
   <button class="btn btn-primary dropdown-toggle p-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-  <img src="{{ Avatar::create('Sample Name')->toBase64() }}" class="avatar" /> Sample Name
+  <img src="{{ Avatar::create($fullname)->toBase64() }}" class="avatar" /> {{$fullname}}
   </button>
   
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

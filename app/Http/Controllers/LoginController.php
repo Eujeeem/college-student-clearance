@@ -418,36 +418,3 @@ class LoginController extends Controller
         return view ('pages.student',['show' => $show]);
     }    
 }
-
-    
-
-            //    INCHARGE CODE 
-            // $dpname = DB::table('departments')->where('incharge_id', $userid)->value('department_name');
-            // $departmentid = DB::table('departments')->where('incharge_id', $userid)->value('id');
-            // $user = Incharge::find($userid);
-            // $list = DB::table('lists')->get();;
-            // $show = DB::table('students')
-            // ->join('lists', function ($join) {
-            //     $join->on('students.id', '=', 'lists.student_id');
-            // })
-            // ->get();
-            // return view ('pages.incharge',['show' => $show])->with('dpname',$dpname)->with('departmentid',$departmentid);
-
-            // STUDENT CODE
-            // $show = DB::table('lists')
-            // ->leftjoin('departments', 'lists.department_id', '=', 'departments.id')
-            // ->leftjoin('incharge', 'departments.incharge_id', '=', 'incharge.id')
-            // ->leftjoin('students', 'students.id', '=', 'lists.student_id')
-            // ->get();
-
-            // return view ('pages.student',['show' => $show])->with('userid',$userid);
-
-
-            // ADMIN CODE
-            // $show = DB::table('lists')
-            // ->leftjoin('departments', 'lists.department_id', '=', 'departments.id')
-            // ->leftjoin('incharge', 'departments.incharge_id', '=', 'incharge.id')
-            // ->leftjoin('students', 'students.id', '=', 'lists.student_id')
-            // ->get();
-
-            // return redirect()->route('home', ['show' => $show])->with('userid',$userid);
