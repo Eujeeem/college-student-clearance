@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('title')
-    Home
+    Incharge - BEED First Year
 @endsection
 
 @section('content')
@@ -48,7 +48,6 @@ $count = $count+1
 
 <div class="container box " style="width:80%; margin-left: 18%"> 
 <div class="float-right"> 
-<button type="button" onclick="window.print()" class="btn btn-dark btn-rounded mb-4 "><i class="fas fa-print"></i> Print</button>
 </div>
 <div class="button">
 <a href="{{route('incharge_BEED_first_year')}}"  class="btn text-primary"style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px; background-color: #ccc "><strong>1ST YEAR</strong></a>
