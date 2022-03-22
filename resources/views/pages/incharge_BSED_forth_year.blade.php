@@ -107,7 +107,6 @@ $count = $count+1
     </tbody>
     </table> 
 
-    @include('Modals.edit_notes')
 
 
 
@@ -118,6 +117,9 @@ $count = $count+1
 @section('scripts')
 
 <script>
+  $(document).ready(function() {
+        $('#example').DataTable();
+    } );
 var modal = document.getElementById("myModal");
 
 var btn = document.getElementById("myBtn");

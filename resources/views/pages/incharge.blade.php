@@ -9,7 +9,7 @@
 
 @include('sections.header_incharge')
 <nav class="side-nav navbar-dark bg-primary" 
-style="min-height: 1000px;width: 15%;"> <img src="/images/logo.png " style="min-height: 130px;width: 80%; margin-left:10%"><br><br><br>
+style="min-height: 1070px;width: 15%;"> <img src="/images/logo.png " style="min-height: 130px;width: 80%; margin-left:10%"><br><br><br>
 
 
 <div>
@@ -57,11 +57,9 @@ $count = $count+1
 <a href="{{route('incharge_home_forth')}}"  class="btn btn-primary text-white "style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px ">4TH YEAR</a>
 <a href="{{route('incharge')}}"  class="btn text-primary "style="width:100px; border-radius: 5px 5px 0px 0px; box-shadow:0px 0px; background-color: #ccc "><strong>All Year</strong></a>
 
-
-
 </div>
 
-<div class="container box2 "> 
+<div class="container box2 ">
     <table id="example" class="table table-bordered table-striped">
     <thead class="table-primary table-sm">
     <tr>
@@ -109,7 +107,7 @@ $count = $count+1
 
 
     
-    @include('Modals.edit_notes')
+
 
 
     </div>
@@ -120,6 +118,9 @@ $count = $count+1
 @section('scripts')
 
 <script>
+  $(document).ready(function() {
+        $('#example').DataTable();
+    } );
 var modal = document.getElementById("myModal");
 
 var btn = document.getElementById("myBtn");
@@ -139,6 +140,9 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+$(document).ready(function() {
+        $('#example').DataTable();
+    } );
 </script>
 
 
