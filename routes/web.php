@@ -113,6 +113,7 @@ Route::middleware(['logoutcheck', 'manageInchargeAccess'])->group(function(){
     
     Route::get('/incharge', [LoginController::class, "incharge_home"])->name("incharge"); 
     Route::get('/edit-status/{id}', [InchargeController::class, "edit_status"])->name("edit_status");
+    Route::get('/update-status/{departmentname}/{id}', [InchargeController::class, "update_notes"])->name("update_notes");
     Route::post('/update/notes{id}', [InchargeController::class, "edit_notes"])->name("edit_notes");
     Route::get('/incharge/1st-Year', [LoginController::class, "incharge_home_first"])->name("incharge_home_first");
     Route::get('/incharge/2nd-Year', [LoginController::class, "incharge_home_second"])->name("incharge_home_second");

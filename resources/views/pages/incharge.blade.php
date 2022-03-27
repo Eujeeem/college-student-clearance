@@ -29,12 +29,14 @@ style="min-height: 1070px;width: 15%;"> <img src="/images/logo.png " style="min-
     @php
 $count = 1
 @endphp 
-@foreach ($show as $lists)  
-  @if ($lists->incharge_id == session()->get('incharge_id'))
+@foreach ($show as $list)  
+  @if ($list->incharge_id == session()->get('incharge_id'))
     @if ($count == 1)
-        <b>{{$lists->department_name}}</b>
+        <b>{{$list->department_name}}</b>
+        <b>{{$list->id}}</b>
 @php
-$count = $count+1
+$count = $count+1;
+$departmentname = $list->department_name
 @endphp
     @endif  
   @endif 
@@ -86,7 +88,7 @@ $count = $count+1
             @if($lists->notes != "")
                 <td>{{$lists->notes}}</td>
             @elseif ($lists->notes == "")
-                <td><a href="#" class="btn btn-primary" id="myBtn" onclick="return confirm('Are you sure you want to return this student to pending?');" ><i class="far fa-sticky-note"></i></a></td>
+                <td><a href="{{route('update_notes',[$departmentname, $lists->id])}}" class="btn btn-primary" ><i class="far fa-sticky-note"></i></a></td>
             @endif
         
         @elseif ($lists->status == "Cleared")

@@ -181,6 +181,44 @@ class AdminController extends Controller
 
 
 
+        $pass = Hash::make($student->id);
+        $user = new User();
+        $user->username = $student->id;
+        $user->password = $pass;
+        $user->student_id = $student->id;
+        $user->type="student";
+        $user->save();
+        return redirect()->route('admin_students');
+    }
+
+    public function edit_student( $id){
+    	$lists = Student::find($id);
+    	return view("Modals.edit_student")->with("lists",$lists);        
+
+    }
+
+    public function update_student(Request $request, $id){
+    	$student = Student::find($id);
+        $student->student_fname = $request->fname;
+        $student->student_lname = $request->lname;
+        $student->student_mname = $request->mname;
+        $student->course_name = $request->course_name;
+        $student->student_year = $request->year;
+        $student->student_contactnumber	 = $request->contactnumber;
+        $student->save();
+    	return redirect()->route('admin_students');       
+
+    }
+
+    public function delete_student($id){
+        $student = Student::find($id);
+        student::destroy($id);
+        return redirect()->route('admin_students');  
+    }
+}
+
+
+
 
 
 
@@ -287,40 +325,3 @@ class AdminController extends Controller
         // $list->student_id = $student->id;
         // $list->department_id = 14;
         // $list->save();
-
-        // $pass = Hash::make($student->id);
-        // $user = new User();
-        // $user->username = $student->id;
-        // $user->password = $pass;
-        // $user->student_id = $student->id;
-        // $user->type="student";
-        // $user->save();
-        return redirect()->route('admin_students');
-    }
-
-    public function edit_student( $id){
-    	$lists = Student::find($id);
-    	return view("Modals.edit_student")->with("lists",$lists);        
-
-    }
-
-    public function update_student(Request $request, $id){
-    	$student = Student::find($id);
-        $student->student_fname = $request->fname;
-        $student->student_lname = $request->lname;
-        $student->student_mname = $request->mname;
-        $student->course_name = $request->course_name;
-        $student->student_year = $request->year;
-        $student->student_contactnumber	 = $request->contactnumber;
-        $student->save();
-    	return redirect()->route('admin_students');       
-
-    }
-
-    public function delete_student($id){
-        $student = Student::find($id);
-        student::destroy($id);
-        return redirect()->route('admin_students');  
-    }
-}
-

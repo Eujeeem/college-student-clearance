@@ -82,5 +82,28 @@ class InchargeController extends Controller
 
     }
 
+
+    public function update_notes( $departmentname, $id){
+
+    	// $lists = Lists::findOrFail($id);
+
+        $department = Department::where('department_name','=', $departmentname)->firstOrFail();
+        $lists = Lists::where([['student_id', '=', $id], ['department_id', '=', $department->id]])->firstOrFail();
+        $student = Student::find($id);
+
+        
+
+        $show = DB::table('lists')
+        ->join('departments', 'lists.department_id', '=', 'departments.id')
+        ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
+        ->join('students', 'students.id', '=', 'lists.student_id')
+        ->get();
+        
+    	return view("Modals.edit_notes")->with("lists",$lists)->with("show",$show)->with("student", $student);       
+
+        // return $department->id;
+
+    }
+
     
 }

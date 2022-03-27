@@ -23,23 +23,25 @@
 </div>  
 </nav>
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content add_department">
-                <span class="close">&times;</span>
+
+<div class="container add_student mt-5">
+
+<h1 style="font-family: Courier New; font-weight: Bold;">Notes</h1>
                 
-                    <form action="#" method="post">
-                    @csrf
-                        <div class="mb-3">
-                        <label for="notes" class="form-label">Notes</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="notes">
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-
-            </div>
-
+    <form action="#" method="post">
+    @csrf
+        <div class="mb-3">
+        
+        <label for="DepartmentName" class="form-label " style="width: 200px; text-align: left;"><b>{{$student->student_lname}}, {{$student->student_fname}}'s Note:</b></label>
+        <!-- <input type="text" value="{{$lists->notes}}" class="form-control" name="department" cols="50" rows="10"> -->
+        <textarea name="txtDescEd" cols="60" rows="10">{{$lists->notes}}</textarea>
         </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>
+    </form>
+    
+
+</div>
+
  @endsection
