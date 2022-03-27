@@ -41,8 +41,7 @@ class InchargeController extends Controller
                 ->where('id', $list_id)
                 ->update([
                     'status' => "Cleared",
-                    'date_cleared' => $mytime,
-                    'notes' => ""
+                    'date_cleared' => $mytime
                     ]);
             return redirect()->route('incharge');        
         } elseif($status == "Cleared"){
@@ -73,7 +72,7 @@ class InchargeController extends Controller
         }
         
         $affected = DB::table('lists')
-        ->where('id', $list_id)
+        ->where('id', $id)
         ->update([
             'notes' => $request->notes
             ]);

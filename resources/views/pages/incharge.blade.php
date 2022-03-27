@@ -69,8 +69,8 @@ $departmentname = $list->department_name
        <th width="30%">Courses</th>
        <th width="10%">Year</th>
        <th width="10%">Status</th>
-       <th width="5%">Notes</th>
-       <th width="15%">Data Cleared</th>
+       <th width="20%">Notes</th>
+       <th width="10%">Data Cleared</th>
       </tr>
     </thead>
     <tbody>
@@ -86,14 +86,14 @@ $departmentname = $list->department_name
         @if($lists->status == "Pending")
             <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-warning" onclick="return confirm('Are you sure you want to approve this student?');">{{$lists->status}} </a></td>
             @if($lists->notes != "")
-                <td>{{$lists->notes}}</td>
+                <td><a href="{{route('update_notes',[$departmentname, $lists->id])}}" ><i class="far fa-sticky-note"></i></a>  {{$lists->notes}}</td>
             @elseif ($lists->notes == "")
-                <td><a href="{{route('update_notes',[$departmentname, $lists->id])}}" class="btn btn-primary" ><i class="far fa-sticky-note"></i></a></td>
+                <td>{{$lists->notes}}<a href="{{route('update_notes',[$departmentname, $lists->id])}}"><i class="far fa-sticky-note fa-2xs"></i></a></td>
             @endif
         
         @elseif ($lists->status == "Cleared")
             <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-success" onclick="return confirm('Are you sure you want to return this student to pending?');">{{$lists->status}}</a></td>
-            <td>{{$lists->notes}}</td>
+            <td><a href="{{route('update_notes',[$departmentname, $lists->id])}}" ><i class="far fa-sticky-note"></i></a> {{$lists->notes}}</b></td>
         @endif
 
 
