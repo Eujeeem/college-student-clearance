@@ -24,17 +24,17 @@
 </nav>
 
 
-<div class="container add_student mt-5">
+<center><div class="container add_student mt-3">
 
 <h1 style="font-family: Courier New; font-weight: Bold;">Notes</h1>
                 
-    <form action="{{route('edit_notes', $lists->id)}}" method="post">
+<form action="{{route('edit_notes', $lists->id)}}" method="post">
     @csrf
-        <div class="mb-3">
+     <div class="mb-5 ">
         
         <label for="DepartmentName" class="form-label " style="width: 200px; text-align: left;"><b>{{$student->student_lname}}, {{$student->student_fname}}'s Note:</b></label>
         <!-- <input type="text" value="{{$lists->notes}}" class="form-control" name="department" cols="50" rows="10"> -->
-        <textarea name="notes" cols="60" rows="10">{{$lists->notes}}</textarea>
+        <textarea name="notes" cols="60" rows="10" >{{$lists->notes}}</textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
@@ -42,6 +42,6 @@
     </form>
     
 
-</div>
+</div></center>
 
  @endsection

@@ -65,12 +65,12 @@ $departmentname = $list->department_name
     <table id="example" class="table table-bordered table-striped">
     <thead class="table-primary table-sm">
     <tr>
-       <th width="20%">Student Name</th>
+    <th width="15%">Student Name</th>
        <th width="30%">Courses</th>
        <th width="10%">Year</th>
        <th width="10%">Status</th>
-       <th width="20%">Notes</th>
-       <th width="10%">Data Cleared</th>
+       <th width="5%">Notes</th>
+       <th width="15%">Data Cleared</th>
       </tr>
     </thead>
     <tbody>

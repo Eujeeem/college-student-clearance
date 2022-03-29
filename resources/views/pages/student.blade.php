@@ -84,9 +84,9 @@ $count = $count+1
 						<table>
 							<tbody>
 								<tr class="row100 body">
-									<td class="cell100 column1">{{$lists->department_name}}</td>
-									<td class="cell100 column2">{{$lists->status}}</td>
-									<td class="cell100 column3">{{$lists->notes}}</td>
+									<td class="cell100 column1 font-weight-bold">{{$lists->department_name}}</td>
+									<td  class="cell100 column2">{{$lists->status}}</td>
+									<td class="cell100 column3 font-weight-bold">{{$lists->notes}}</td>
 									<td class="cell100 column4">{{$lists->date_cleared}}</td>
 								</tr>
                 </thead>
@@ -96,7 +96,7 @@ $count = $count+1
         <tr>
         <td class="cell100 column1 font-weight-bold">{{$lists->department_name}} </td>
         <td class="cell100 column2">{{$lists->status}}</td>
-        <td class="cell100 column3">{{$lists->notes}}</td>
+        <td class="cell100 column3 font-weight-bold">{{$lists->notes}}</td>
         <td class="cell100 column4">{{$lists->date_cleared}}</td>
         </tr>
     @endif 
