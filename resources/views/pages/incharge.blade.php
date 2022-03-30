@@ -9,7 +9,7 @@
 
 @include('sections.header_incharge')
 <nav class="side-nav navbar-dark bg-primary" 
-style="min-height: 1070px;width: 15%;"> <img src="/images/logo.png " style="min-height: 130px;width: 80%; margin-left:10%"><br><br><br>
+style="min-height: 2450px ;width: 15%;"> <img src="/images/logo.png " style="min-height: 130px;width: 80%; margin-left:10%"><br><br><br>
 
 
 <div>
@@ -67,9 +67,9 @@ $departmentname = $list->department_name
     <tr>
     <th width="15%">Student Name</th>
        <th width="30%">Courses</th>
-       <th width="10%">Year</th>
+       <th width="8%">Year</th>
        <th width="10%">Status</th>
-       <th width="5%">Notes</th>
+       <th width="20%">Notes</th>
        <th width="15%">Data Cleared</th>
       </tr>
     </thead>
@@ -82,14 +82,22 @@ $departmentname = $list->department_name
         <td>{{$lists->student_lname}}, {{$lists->student_fname}} {{$lists->student_mname}}. </td>
         <td>{{$lists->course_name}}</td>
         <td>{{$lists->student_year}}</td>
-
+        
         @if($lists->status == "Pending")
             <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-warning" onclick="return confirm('Are you sure you want to approve this student?');">{{$lists->status}} </a></td>
             @if($lists->notes != "")
-                <td><a href="{{route('update_notes',[$departmentname, $lists->id])}}" ><i class="far fa-sticky-note"></i></a>  {{$lists->notes}}</td>
-            @elseif ($lists->notes == "")
-                <td>{{$lists->notes}}<a href="{{route('update_notes',[$departmentname, $lists->id])}}"><i class="far fa-sticky-note fa-2xs"></i></a></td>
-            @endif
+                <td><a href="{{route('update_notes',[$departmentname, $lists->id])}}" ><i class="fas fa-edit"></i></a>  
+            <a class="fas fa-bell ml-3" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">See Notes</a>
+              <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+           {{$lists->notes}}
+            </div>
+            </div>
+              </td>
+                @elseif ($lists->notes == "")
+                <td>{{$lists->notes}}<a href="{{route('update_notes',[$departmentname, $lists->id])}}"><i class="fas fa-edit"></i></a>
+</td>
+                @endif
         
         @elseif ($lists->status == "Cleared")
             <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-success" onclick="return confirm('Are you sure you want to return this student to pending?');">{{$lists->status}}</a></td>
