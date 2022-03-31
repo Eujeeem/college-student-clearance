@@ -65,12 +65,13 @@ $departmentname = $list->department_name
     <table id="example" class="table table-bordered table-striped">
     <thead class="table-primary table-sm">
     <tr>
-    <th width="15%">Student Name</th>
-       <th width="30%">Courses</th>
+    <th width="10%">Student Name</th>
+       <th width="15%">Courses</th>
        <th width="8%">Year</th>
        <th width="10%">Status</th>
-       <th width="20%">Notes</th>
-       <th width="15%">Data Cleared</th>
+       <th width="12%">Notes</th>
+       <th width="8%">Data Cleared</th>
+       <th width="1%"><input type="checkbox" id="checkAll"></th>
       </tr>
     </thead>
     <tbody>
@@ -96,7 +97,7 @@ $departmentname = $list->department_name
               </td>
                 @elseif ($lists->notes == "")
                 <td>{{$lists->notes}}<a href="{{route('update_notes',[$departmentname, $lists->id])}}"><i class="fas fa-edit"></i></a>
-</td>
+                </td>
                 @endif
         
         @elseif ($lists->status == "Cleared")
@@ -107,6 +108,7 @@ $departmentname = $list->department_name
 
 
         <td>{{$lists->date_cleared}}</td>
+        <td><input type="checkbox" id="checkItem"></td>
         </tr>
       @endif 
         
@@ -128,6 +130,7 @@ $departmentname = $list->department_name
 @section('scripts')
 
 <script>
+
   $(document).ready(function() {
         $('#example').DataTable();
     } );
@@ -153,6 +156,16 @@ window.onclick = function(event) {
 $(document).ready(function() {
         $('#example').DataTable();
     } );
+    $(document).ready(function(){
+    $("#checkAll").click(function(){
+      if($(this).is(":checked")){
+        $(".checkItem").prop("checked",true);
+    }    
+    else{
+      $(".checkItem").prop("checked", false);
+    }
+  });
+});
 </script>
 
 
