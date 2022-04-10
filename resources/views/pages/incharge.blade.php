@@ -50,7 +50,6 @@ $departmentname = $list->department_name
 
 <div class="container box mb-5 " style="width:80%; margin-left: 18%"> 
 <div class="float-right"> 
-<button type="button" onclick="window.print()" class="btn btn-dark btn-rounded mb-4 "><i class="fas fa-print"></i> Print</button>
 </div>
 <div class="button">
 <a href="{{route('incharge_home_first')}}"  class="btn btn-primary text-white "style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px ">1ST YEAR</a>
@@ -62,17 +61,20 @@ $departmentname = $list->department_name
 </div>
 
 <div class="container box2 ">
+    <form  method="POST" class="incharge-form">
+      @csrf
+      <button formaction="{{route('studentStatus', $departmentname)}}" type="submit" class="btn btn-success mb-2">Approve Selected</button>
     <table id="example" class="table table-bordered table-striped">
     <thead class="table-primary table-sm">
     <tr>
-    <th width="10%">Student Name</th>
-       <th width="15%">Courses</th>
-       <th width="8%">Year</th>
-       <th width="10%">Status</th>
-       <th width="12%">Notes</th>
-       <th width="8%">Data Cleared</th>
-       <th width="1%"><input type="checkbox" id="checkAll"></th>
-      </tr>
+      <th width="3%"><input type="checkbox" id="chkCheckAll" /></th>
+      <th width="10%">Student Name</th>
+      <th width="12%">Courses</th>
+      <th width="8%">Year</th>
+      <th width="10%">Status</th>
+      <th width="12%">Notes</th>
+      <th width="8%">Data Cleared</th>
+    </tr>
     </thead>
     <tbody>
 
@@ -80,6 +82,7 @@ $departmentname = $list->department_name
 
       @if ($lists->incharge_id == session()->get('incharge_id'))   
         <tr>
+        <td><input type="checkbox" name="ids[]" class="checkBoxClass" value="{{$lists->id}}"/></td>
         <td>{{$lists->student_lname}}, {{$lists->student_fname}} {{$lists->student_mname}}. </td>
         <td>{{$lists->course_name}}</td>
         <td>{{$lists->student_year}}</td>
@@ -111,10 +114,8 @@ $departmentname = $list->department_name
             
         @endif
 
-
-
         <td>{{$lists->date_cleared}}</td>
-        <td><input type="checkbox" id="checkItem"></td>
+
         </tr>
       @endif 
         
@@ -122,6 +123,7 @@ $departmentname = $list->department_name
 
     </tbody>
     </table> 
+</form>
 
 
     
@@ -136,42 +138,23 @@ $departmentname = $list->department_name
 @section('scripts')
 
 <script>
+    $(function(e){
+        $("#chkCheckAll").click(function(){
+          $(".checkBoxClass").prop('checked',$(this).prop('checked'));
+        })
+    });
 
-  $(document).ready(function() {
-        $('#example').DataTable();
-    } );
-var modal = document.getElementById("myModal");
+    $("#changeStatus").click(function(e){
+      e.preventDefault();
+      var allids = [];
 
-var btn = document.getElementById("myBtn");
+      $("input:checkbox[name=ids]:checked").each(function(){
+        allids.push($(this).val());
+      });
 
-var span = document.getElementsByClassName("close")[0];
 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-$(document).ready(function() {
-        $('#example').DataTable();
-    } );
-    $(document).ready(function(){
-    $("#checkAll").click(function(){
-      if($(this).is(":checked")){
-        $(".checkItem").prop("checked",true);
-    }    
-    else{
-      $(".checkItem").prop("checked", false);
-    }
-  });
-});
+    
+    });
 </script>
 
 

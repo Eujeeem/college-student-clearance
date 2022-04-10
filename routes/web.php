@@ -120,6 +120,8 @@ Route::middleware(['logoutcheck', 'manageInchargeAccess'])->group(function(){
     Route::get('/incharge/3rd-Year', [LoginController::class, "incharge_home_third"])->name("incharge_home_third");
     Route::get('/incharge/4th-Year', [LoginController::class, "incharge_home_forth"])->name("incharge_home_forth");
 
+    Route::post('/edits/note/{departmentname}', [InchargeController::class, "studentStatus"])->name("studentStatus");
+
     
 });
 

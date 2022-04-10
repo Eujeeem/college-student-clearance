@@ -35,7 +35,7 @@ class InchargeController extends Controller
             $list_id = $user->id;
         }    
 
-        $mytime = Carbon::now();
+        $mytime = Carbon::today()->toDateString();
         if($status == "Pending"){
             $affected = DB::table('lists')
                 ->where('id', $list_id)
@@ -102,6 +102,23 @@ class InchargeController extends Controller
 
         // return $department->id;
 
+    }
+
+    public function studentStatus(Request $request,$departmentname ){
+
+        $ids = $request->ids;
+
+        $department = Department::where('department_name','=', $departmentname)->firstOrFail();
+        $d = 0;
+        for ($i=0; $i < count($ids); $i++) { 
+            
+            $lists = Lists::where([['student_id', '=', $ids[$i]], ['department_id', '=', $department->id]])->firstOrFail();
+            $lists->status = "Cleared";
+            $lists->save();
+
+        }
+        
+        return redirect()->route('incharge');
     }
 
     
