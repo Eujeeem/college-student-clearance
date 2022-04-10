@@ -33,7 +33,7 @@ $count = 1
   @if ($list->incharge_id == session()->get('incharge_id'))
     @if ($count == 1)
         <b>{{$list->department_name}}</b>
-        <b>{{$list->id}}</b>
+
 @php
 $count = $count+1;
 $departmentname = $list->department_name
@@ -61,7 +61,7 @@ $departmentname = $list->department_name
 </div>
 
 <div class="container box2 ">
-    <form  method="POST" class="incharge-form">
+    <form  method="POST" onsubmit="return validateForm()" class="incharge-form">
       @csrf
       <button formaction="{{route('studentStatus', $departmentname)}}" type="submit" class="btn btn-success mb-2">Approve Selected</button>
     <table id="example" class="table table-bordered table-striped">
@@ -104,13 +104,18 @@ $departmentname = $list->department_name
         
         @elseif ($lists->status == "Cleared")
             <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-success" onclick="return confirm('Are you sure you want to return this student to pending?');">{{$lists->status}}</a></td>
-            <td><a href="{{route('update_notes',[$departmentname, $lists->id])}}" ><i class="fas fa-edit"></i></a></b>
+            @if($lists->notes != "")
+                <td><a href="{{route('update_notes',[$departmentname, $lists->id])}}" ><i class="fas fa-edit"></i></a>  
             <a class="fas fa-bell ml-3" data-bs-toggle="collapse" href="#{{$lists->student_lname}}" role="button" aria-expanded="false" aria-controls="collapseExample">See Notes</a>
-                <div class="collapse" id="{{$lists->student_lname}}">
+              <div class="collapse" id="{{$lists->student_lname}}">
             <div class="card card-body">
            {{$lists->notes}}
             </div>
-            </div></td>
+            </div>
+              </td>
+                @elseif ($lists->notes == "")
+                <td>{{$lists->notes}}<a href="{{route('update_notes',[$departmentname, $lists->id])}}"><i class="fas fa-edit"></i></a></td>
+                @endif
             
         @endif
 

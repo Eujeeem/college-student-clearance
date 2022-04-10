@@ -35,7 +35,7 @@ class InchargeController extends Controller
             $list_id = $user->id;
         }    
 
-        $mytime = Carbon::today()->toDateString();
+        $mytime = Carbon::today()->format('Y-m-d');
         if($status == "Pending"){
             $affected = DB::table('lists')
                 ->where('id', $list_id)
@@ -107,13 +107,14 @@ class InchargeController extends Controller
     public function studentStatus(Request $request,$departmentname ){
 
         $ids = $request->ids;
-
+        $mytime = Carbon::today()->format('Y-m-d');
         $department = Department::where('department_name','=', $departmentname)->firstOrFail();
         $d = 0;
         for ($i=0; $i < count($ids); $i++) { 
             
             $lists = Lists::where([['student_id', '=', $ids[$i]], ['department_id', '=', $department->id]])->firstOrFail();
             $lists->status = "Cleared";
+            $lists->date_cleared = $mytime;
             $lists->save();
 
         }
