@@ -29,12 +29,14 @@
     @php
 $count = 1
 @endphp 
-@foreach ($show as $lists)  
-  @if ($lists->incharge_id == session()->get('incharge_id'))
+@foreach ($show as $list)  
+  @if ($list->incharge_id == session()->get('incharge_id'))
     @if ($count == 1)
-        <b>{{$lists->department_name}}</b>
+        <b>{{$list->department_name}}</b>
+
 @php
-$count = $count+1
+$count = $count+1;
+$departmentname = $list->department_name
 @endphp
     @endif  
   @endif 
@@ -48,7 +50,6 @@ $count = $count+1
 
 <div class="container box " style="width:80%; margin-left: 18%"> 
 <div class="float-right"> 
-<button type="button" onclick="window.print()" class="btn btn-dark btn-rounded mb-4 "><i class="fas fa-print"></i> Print</button>
 </div>
 <div class="button">
 <a href="{{route('incharge_BSHM_first_year')}}"  class="btn text-primary"style="width:130px; border-radius: 5px 5px 0px 0px;box-shadow:0px 0px; background-color: #ccc"><strong>1ST YEAR</strong></a>
@@ -61,16 +62,20 @@ $count = $count+1
 </div>
 
 <div class="container box2 "> 
+<form  name="statusForm" method="POST" onsubmit="return validateForm()" class="incharge-form" required>
+      @csrf
+      <button formaction="{{route('studentStatus', $departmentname)}}" type="submit" class="btn btn-success mb-2 approve" id="approveBtn" >Approve Selected</button>
     <table id="example" class="table table-bordered table-striped">
     <thead class="table-primary table-sm">
     <tr>
-       <th width="20%">Student Name</th>
-       <th width="30%">Courses</th>
-       <th width="10%">Year</th>
-       <th width="10%">Status</th>
-       <th width="5%">Notes</th>
-       <th width="15%">Data Cleared</th>
-      </tr>
+      <th width="3%"><input type="checkbox" id="chkCheckAll" /></th>
+      <th width="10%">Student Name</th>
+      <th width="12%">Courses</th>
+      <th width="8%">Year</th>
+      <th width="10%">Status</th>
+      <th width="12%">Remarks</th>
+      <th width="8%">Data Cleared</th>
+    </tr>
     </thead>
     <tbody>
 
@@ -79,106 +84,56 @@ $count = $count+1
       @if ($lists->incharge_id == session()->get('incharge_id'))
       @if ($lists->course_name == 'Bachelor of Science in Hospitality Management')
       @if ($lists->student_year == '1st Year')
-        <tr>
+      <tr>
+        <td><input type="checkbox" name="ids[]" class="checkBoxClass" value="{{$lists->id}}"/></td>
         <td>{{$lists->student_lname}}, {{$lists->student_fname}} {{$lists->student_mname}}. </td>
         <td>{{$lists->course_name}}</td>
         <td>{{$lists->student_year}}</td>
-
+        
         @if($lists->status == "Pending")
-            <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-warning">{{$lists->status}} </a></td>
+            <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-warning" onclick="return confirm('Are you sure you want to approve this student?');">{{$lists->status}} </a></td>
             @if($lists->notes != "")
-                <td>{{$lists->notes}}</td>
-            @elseif ($lists->notes == "")
-                <td><a href="#" class="btn btn-primary" id="myBtn" ><i class="far fa-sticky-note"></i></a></td>
-            @endif
+                <td><a href="{{route('update_notes',[$departmentname, $lists->id])}}" ><i class="fas fa-edit"></i></a>  
+            <a class="fas fa-bell ml-3" data-bs-toggle="collapse" href="#{{$lists->student_lname}}" role="button" aria-expanded="false" aria-controls="collapseExample">See Notes</a>
+              <div class="collapse" id="{{$lists->student_lname}}">
+            <div class="card card-body">
+           {{$lists->notes}}
+            </div>
+            </div>
+              </td>
+                @elseif ($lists->notes == "")
+                <td>{{$lists->notes}}<a href="{{route('update_notes',[$departmentname, $lists->id])}}"><i class="fas fa-edit"></i></a></td>
+                @endif
         
         @elseif ($lists->status == "Cleared")
-            <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-success">{{$lists->status}}</a></td>
-            <td>{{$lists->notes}}</td>
+            <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-success" onclick="return confirm('Are you sure you want to return this student to pending?');">{{$lists->status}}</a></td>
+            @if($lists->notes != "")
+                <td><a href="{{route('update_notes',[$departmentname, $lists->id])}}" ><i class="fas fa-edit"></i></a>  
+            <a class="fas fa-bell ml-3" data-bs-toggle="collapse" href="#{{$lists->student_lname}}" role="button" aria-expanded="false" aria-controls="collapseExample">See Notes</a>
+              <div class="collapse" id="{{$lists->student_lname}}">
+            <div class="card card-body">
+           {{$lists->notes}}
+            </div>
+            </div>
+              </td>
+                @elseif ($lists->notes == "")
+                <td>{{$lists->notes}}<a href="{{route('update_notes',[$departmentname, $lists->id])}}"><i class="fas fa-edit"></i></a></td>
+                @endif
+            
         @endif
 
-
-
         <td>{{$lists->date_cleared}}</td>
+
         </tr>
       @endif 
       @endif
-      @endif   
+      @endif
     @endforeach
 
     </tbody>
     </table> 
-
- 
-
-
-<!-- <div class="container col-md-6 offset-md-3 mt-5">
-
-<div class="mt-5">
-    <h3 class="text-center">
-
-    @php
-$count = 1
-@endphp 
-@foreach ($show as $lists)  
-  @if ($lists->incharge_id == session()->get('incharge_id'))
-    @if ($count == 1)
-        <b>{{$lists->department_name}}</b>
-@php
-$count = $count+1
-@endphp
-    @endif  
-  @endif 
-@endforeach  
-
-    </h3> 
-    <br>
-
-</div>
-
-
-    <table class="table table-hover table-bordered">
-    <thead class="table-primary table-sm">
-        <tr>
-        <th scope="col">Student Name</th>
-        <th scope="col">Status</th>
-        <th scope="col">Notes</th>
-        <th scope="col">Date Cleared</th>
-        </tr>
-    </thead>
-    <tbody>
-
-    @foreach ($show as $lists)  
-
-      @if ($lists->incharge_id == session()->get('incharge_id'))   
-        <tr>
-        <td>{{$lists->student_lname}}, {{$lists->student_fname}} {{$lists->student_mname}}. </td>
-
-        @if($lists->status == "Pending")
-            <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-warning">{{$lists->status}}</a></td>
-            @if($lists->notes != "")
-                <td>{{$lists->notes}}</td>
-            @elseif ($lists->notes == "")
-                <td><a href="#" class="btn btn-primary" id="myBtn" >Add Note</a></td>
-            @endif
-        
-        @elseif ($lists->status == "Cleared")
-            <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-success">{{$lists->status}}</a></td>
-            <td>{{$lists->notes}}</td>
-        @endif
-
-
-
-        <td>{{$lists->date_cleared}}</td>
-        </tr>
-      @endif 
-        
-    @endforeach
-
-    </tbody>
-    </table> -->
+</form>
     
-
 
 
 
@@ -189,28 +144,45 @@ $count = $count+1
 @section('scripts')
 
 <script>
-  $(document).ready(function() {
-        $('#example').DataTable();
-    } );
-var modal = document.getElementById("myModal");
+    $(function(e){
+        $("#chkCheckAll").click(function(){
+          $(".checkBoxClass").prop('checked',$(this).prop('checked'));
+        })
+    });
 
-var btn = document.getElementById("myBtn");
+    $("#changeStatus").click(function(e){
+      e.preventDefault();
+      var allids = [];
 
-var span = document.getElementsByClassName("close")[0];
+      $("input:checkbox[name=ids]:checked").each(function(){
+        allids.push($(this).val());
+      });
 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
 
-span.onclick = function() {
-  modal.style.display = "none";
-}
+    
+    });
+</script>
 
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+
+<script type="text/javascript">
+    $('.approve').click(function(){
+        var vals = "";
+        $.each($("input[name='ids[]']:checked"), function(){  
+            vals += "~"+$(this).val();  
+        });
+        if (vals){
+            vals = vals.substring(1);
+        }else{
+            alert('Please choose atleast one value.')
+        }
+
+
+    });
 </script>
 
 

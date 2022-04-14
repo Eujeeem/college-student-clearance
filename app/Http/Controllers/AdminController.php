@@ -167,7 +167,7 @@ class AdminController extends Controller
         $student->save();
         $student->id;
         
-        $department = DB::table('departments')->where('department', $department)->get();
+        $department = DB::table('departments')->get();
 
 
         foreach($department as $departments){

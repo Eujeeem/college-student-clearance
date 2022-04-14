@@ -110,6 +110,8 @@ class InchargeController extends Controller
         $mytime = Carbon::today()->format('Y-m-d');
         $department = Department::where('department_name','=', $departmentname)->firstOrFail();
         $d = 0;
+
+        if($ids==true){
         for ($i=0; $i < count($ids); $i++) { 
             
             $lists = Lists::where([['student_id', '=', $ids[$i]], ['department_id', '=', $department->id]])->firstOrFail();
@@ -119,7 +121,12 @@ class InchargeController extends Controller
 
         }
         
-        return redirect()->route('incharge');
+        return redirect()->back();
+        }
+        elseif($ids==null){
+            return redirect()->back();
+
+        }
     }
 
     

@@ -27,7 +27,7 @@
 <div class="icon-section">
 <i class="fa fa-users" aria-hidden="true"></i><br>
 <small>Student</small>
-<p>256</p>
+<p>{{$student}}</p>
 </div>
 <div class="detail-section">
 <a href="{{route('admin_students')}}">More Info </a>
@@ -37,7 +37,7 @@
 <div class="icon-section">
 <i class="fa fa-building" aria-hidden="true"></i><br>
 <small>Department</small>
-<p>100</p>
+<p>{{$department}}</p>
 </div>
 <div class="detail-section">
 <a href="{{route('admin_departments')}}">More Info </a>
@@ -47,7 +47,7 @@
 <div class="icon-section">
 <i class="fa fa-tasks" aria-hidden="true"></i><br>
 <small>In-Charge</small>
-<p>90</p>
+<p>{{$incharge}}</p>
 </div>
 <div class="detail-section">
 <a href="{{route('admin_incharge')}}">More Info </a>
@@ -55,22 +55,13 @@
 </div>
 <div class="dashbord dashbord-blue">
 <div class="icon-section">
-<i class="fa fa-question-circle" aria-hidden="true"></i><br>
-<small>unknown</small>
+<i class="fa fa-users" aria-hidden="true"></i><br>
+<small>Cleared Students</small>
 <p>unknown</p>
 </div>
 <div class="detail-section">
-<a href="#">More Info </a>
+<a href="{{route('admin_students')}}">More Info </a>
 </div>
-</div>
-<div class="dashbord dashbord-red">
-<div class="icon-section">
-<i class="fa fa-question-circle" aria-hidden="true"></i><br>
-<small>unknown</small>
-<p>unknown</p>
-</div>
-<div class="detail-section">
-<a href="#">More Info </a>
 </div>
 </div>
 </div>

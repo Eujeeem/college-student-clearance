@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('title')
-    Home
+    Incharge - Home
 @endsection
 
 @section('content')
@@ -61,9 +61,9 @@ $departmentname = $list->department_name
 </div>
 
 <div class="container box2 ">
-    <form  method="POST" onsubmit="return validateForm()" class="incharge-form">
+    <form  name="statusForm" method="POST" onsubmit="return validateForm()" class="incharge-form" required>
       @csrf
-      <button formaction="{{route('studentStatus', $departmentname)}}" type="submit" class="btn btn-success mb-2">Approve Selected</button>
+      <button formaction="{{route('studentStatus', $departmentname)}}" type="submit" class="btn btn-success mb-2 approve" id="approveBtn" >Approve Selected</button>
     <table id="example" class="table table-bordered table-striped">
     <thead class="table-primary table-sm">
     <tr>
@@ -72,7 +72,7 @@ $departmentname = $list->department_name
       <th width="12%">Courses</th>
       <th width="8%">Year</th>
       <th width="10%">Status</th>
-      <th width="12%">Notes</th>
+      <th width="12%">Remarks</th>
       <th width="8%">Data Cleared</th>
     </tr>
     </thead>
@@ -162,5 +162,26 @@ $departmentname = $list->department_name
     });
 </script>
 
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+
+<script type="text/javascript">
+    $('.approve').click(function(){
+        var vals = "";
+        $.each($("input[name='ids[]']:checked"), function(){  
+            vals += "~"+$(this).val();  
+        });
+        if (vals){
+            vals = vals.substring(1);
+        }else{
+            alert('Please choose atleast one value.')
+        }
+
+
+    });
+</script>
 
 @endsection

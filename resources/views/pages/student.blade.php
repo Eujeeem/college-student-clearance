@@ -33,7 +33,7 @@ $count = $count+1
 
 <!-- <img src="{{ Avatar::create($fullname)->toBase64() }}" class="avatar" style="min-height: 100px;width: 40%;" /><br><br> -->
  <img src="/images/logo.png " style="min-height: 130px;width: 80%; margin-left:10%"><br><br><br>
-
+ <!-- <button type="button" onclick="window.print()" class="btn btn-dark btn-rounded mb-4 "><i class="fas fa-print"></i> Print</button> -->
 <div class="information ml-3">
 @php
 $count = 1
