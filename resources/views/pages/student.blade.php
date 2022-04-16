@@ -22,6 +22,7 @@ $count = 1
     @if ($lists->student_id == session('student_id'))
         <?php
         $fullname = $lists->student_fname . " " . $lists->student_lname;
+        $firstStringCharacter = substr($lists->student_mname, 0, 1);
     ?>   
 @php
 $count = $count+1
@@ -33,7 +34,7 @@ $count = $count+1
 
 <!-- <img src="{{ Avatar::create($fullname)->toBase64() }}" class="avatar" style="min-height: 100px;width: 40%;" /><br><br> -->
  <img src="/images/logo.png " style="min-height: 130px;width: 80%; margin-left:10%"><br><br><br>
- <!-- <button type="button" onclick="window.print()" class="btn btn-dark btn-rounded mb-4 "><i class="fas fa-print"></i> Print</button> -->
+ <button type="button" onclick="window.print()" class="btn btn-danger btn-rounded mb-4 ms-3"><i class="fas fa-print"></i> Print Record</button>
 <div class="information ml-3">
 @php
 $count = 1
@@ -42,6 +43,7 @@ $count = 1
     
     @if ($count == 1)
     @if ($lists->student_id == session('student_id'))
+        <h6><b>{{$lists->student_lname}}, {{$lists->student_fname}} {{$firstStringCharacter}}.</b></h6> 
         <h6><b>{{$lists->course_name}}</b></h6>
         <h6><b>{{$lists->student_year}}</b></h6>
         <h6><b>{{$lists->year}}</b></h6>

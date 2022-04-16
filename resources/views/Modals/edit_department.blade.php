@@ -44,7 +44,7 @@
             $value = \App\Models\Incharge::where(['id' => $lists->incharge_id])->pluck('incharge_name')->first();
             @endphp
             @if ($value != '')
-            <option value="{{$value}}" disabled selected hidden>{{$value}}</option>
+            <option value="{{$lists->incharge_id}}">{{$value}}</option>
 
             @elseif ($value == '')
             <option value="" disabled selected hidden>Select In-charge</option>
@@ -62,14 +62,14 @@
         </div>
 
         <div class="mb-3">
-        <label for="inchargename" class="form-label" style="width: 200px; text-align: left;"><b>Assistant In-charge</b></label>
+        <label for="incharge" class="form-label" style="width: 200px; text-align: left;"><b>Assistant In-charge</b></label>
             <select name="assistant" class="form-control">
             <option value="" disabled selected hidden>Select Assistant In-charge</option>
             @php 
             $values = \App\Models\Incharge::where(['id' => $lists->assistant_incharge])->pluck('incharge_name')->first();
             @endphp
             @if ($values != '')
-            <option value="{{$value}}" disabled selected hidden>{{$values}}</option>
+            <option value="{{$lists->incharge_id}}" >{{$values}}</option>
 
             @elseif ($values == '')
             <option value="" disabled selected hidden>Select Assistant In-charge</option>
