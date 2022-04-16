@@ -19,6 +19,7 @@
 <a href="{{route('admin_students')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">Students</a>
 <a href="{{route('admin_departments')}}"  class="btn btn-light text-dark round-0"style="width:100%; border-radius:0; box-shadow:0px 0px  font-size:20px;"><strong>Departments</strong></a>
 <a href="{{route('admin_incharge')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">In-charge</a>
+<a href="{{route('admin_assistant')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px  ">Assistant In-charge</a>
 </div>  
 </nav>
 
@@ -47,8 +48,21 @@
                             </select>
                         </div>
 
+                        <div class="mb-3">
+                        <label for="inchargename" class="form-label" style="width: 200px; text-align: left;"><b>Assistant In-charge</b></label>
+                            <select name="assistant" class="form-control">
+                            <option value="" disabled selected hidden>Select Assistant In-charge</option>
+                            @foreach($assistant as $shows)
+                            @if ($shows->type == 'assistant')
+                            @if ($shows->incharge_name != '')                          
+                            <option value="{{$shows->incharge_id}}">{{$shows->incharge_name}}</option>
+                            @endif 
+                            @endif 
+                            @endforeach    
+                            </select>
+                            </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <a href="{{route('admin_departments')}}" class="btn btn-danger">Cancel</a>   
+                        <a href="javascript:history.go(-1)" class="btn btn-danger">Cancel</a>   
                     </form>
 
             </div>

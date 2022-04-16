@@ -36,6 +36,8 @@ Route::middleware(['logoutcheck', 'manageAdminAccess'])->group(function(){
     Route::get('admin/departments', [AdminController::class, "departments_home"])->name("admin_departments");
 
     Route::get('admin/incharge', [AdminController::class, "incharge_home"])->name("admin_incharge");
+
+    Route::get('admin/assistant-incharge', [AdminController::class, "assistant_home"])->name("admin_assistant");
     
     Route::post('/admin/departments/add', [AdminController::class, "add_department"])->name("add_department");
 

@@ -20,6 +20,7 @@
 <a href="{{route('incharge_BSSW')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">BSSW</a>
 <a href="{{route('incharge_BSED')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">BSED</a>
 <a href="{{route('incharge')}}"  class="btn btn-light text-dark "style="width:100%; font-size:20px; border-radius:0; box-shadow:0px 0px"><strong>ALL</strong></a>  
+<a href="{{route('admin_assistant')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px  ">Assistant In-charge</a>
 </div>  
 </nav>
 
@@ -38,7 +39,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>
+        <a href="javascript:history.go(-1)" class="btn btn-danger">Cancel</a>
     </form>
     
 

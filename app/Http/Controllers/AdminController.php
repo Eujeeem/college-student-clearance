@@ -21,11 +21,17 @@ class AdminController extends Controller
     }
     public function departments_home(){
         $show = DB::table('incharge')
+        ->rightjoin('users', 'incharge.id', '=', 'users.incharge_id')
         ->rightjoin('departments', 'incharge.id', '=', 'departments.incharge_id')
-        ->get();        
-         
+        ->get();
+                
+        $user  = DB::table('users')
+        ->rightjoin('incharge', 'incharge.id', '=', 'users.incharge_id')
+        ->rightjoin('departments', 'departments.id', '=', 'users.incharge_id')
+        ->get();       
+
         $incharge = Incharge::all(); 
-        return view('pages.admin_department', ['show' => $show])->with("incharge",$incharge);
+        return view('pages.admin_department', ['show' => $show])->with("incharge",$incharge)->with("user",$user);
     }    
     public function incharge_home(){
         $show = DB::table('departments')
@@ -33,13 +39,37 @@ class AdminController extends Controller
         ->get();  
 
         $department = Department::all();
-        return view('pages.admin_incharge', ['show' => $show])->with("department",$department);
+
+        $user  = DB::table('departments')
+        ->rightjoin('incharge', 'incharge.id', '=', 'departments.incharge_id')
+        ->rightjoin('users', 'incharge.id', '=', 'users.incharge_id')
+        ->get();
+        return view('pages.admin_incharge', ['show' => $show])->with("department",$department)->with("user",$user);
+    } 
+
+    public function assistant_home(){
+        $show = DB::table('departments')
+        ->rightjoin('incharge', 'incharge.id', '=', 'departments.incharge_id')
+        ->get();  
+
+        $department = Department::all();
+
+        $user  = DB::table('departments')
+        ->rightjoin('incharge', 'incharge.id', '=', 'departments.incharge_id')
+        ->rightjoin('users', 'incharge.id', '=', 'users.incharge_id')
+        ->get();
+        return view('pages.admin_assistant', ['show' => $show])->with("department",$department)->with("user",$user);
     } 
 
     public function add_new_department(Request $request){
 
         $incharge = Incharge::all();
-    	return view("Modals.add_department")->with("incharge",$incharge);       
+
+        $assistant  = DB::table('departments')
+        ->rightjoin('incharge', 'incharge.id', '=', 'departments.incharge_id')
+        ->rightjoin('users', 'incharge.id', '=', 'users.incharge_id')
+        ->get();
+    	return view("Modals.add_department")->with("incharge",$incharge)->with("assistant",$assistant);       
 
 
     }   
@@ -47,6 +77,7 @@ class AdminController extends Controller
         $department = new Department();
         $department->department_name = $request->department;
         $department->incharge_id = $request->incharge;
+        $department->assistant_incharge = $request->assistant;
         $department->save();
         return redirect()->route('admin_departments');
 
@@ -86,7 +117,12 @@ class AdminController extends Controller
 
     	$lists = Department::find($id);
         $incharge = Incharge::all();
-    	return view("Modals.edit_department")->with("lists",$lists)->with("incharge",$incharge);       
+
+        $user  = DB::table('departments')
+        ->rightjoin('incharge', 'incharge.id', '=', 'departments.incharge_id')
+        ->rightjoin('users', 'incharge.id', '=', 'users.incharge_id')
+        ->get();
+    	return view("Modals.edit_department")->with("lists",$lists)->with("incharge",$incharge)->with("user",$user);       
 
     }
 
@@ -94,6 +130,7 @@ class AdminController extends Controller
     	$department = Department::find($id);
         $department->department_name = $request->department;
         $department->incharge_id = $request->incharge;
+        $department->assistant_incharge = $request->assistant;
         $department->save();
     	return redirect()->route('admin_departments');       
 
@@ -122,7 +159,7 @@ class AdminController extends Controller
         $user->username = $incharge->id;
         $user->password = $pass;
         $user->incharge_id = $incharge->id;
-        $user->type="incharge";
+        $user->type= $request->position;
         $user->save();
 
         return redirect()->route('admin_incharge');
@@ -169,11 +206,15 @@ class AdminController extends Controller
         
         $department = DB::table('departments')->get();
 
+        $year = date("Y");
+        $previousyear = $year -1;
+
+        $sy = $previousyear. "-". $year;
 
         foreach($department as $departments){
             $list = new Lists();
             $list->status = "Pending";
-            $list->year = "2021-2022";
+            $list->year = $sy;
             $list->student_id = $student->id;
             $list->department_id = $departments->id;
             $list->save();       

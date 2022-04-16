@@ -74,7 +74,7 @@ $count = $count+1
 								<tr class="row100 head">
 									<th class="cell100 column1" >Department</th>
 									<th class="cell100 column2">Status</th>
-									<th  class="cell100 column3">Notes</th>
+									<th  class="cell100 column3">Remarks</th>
 									<th  class="cell100 column4">Date Cleared</th>
 								</tr>
 							</thead>

@@ -19,11 +19,12 @@
 <a href="{{route('admin_students')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">Students</a>
 <a href="{{route('admin_departments')}}"  class="btn btn-light text-dark round-0"style="width:100%; border-radius:0; box-shadow:0px 0px  font-size:20px;"><strong>Departments</strong></a>
 <a href="{{route('admin_incharge')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px">In-charge</a>
+<a href="{{route('admin_assistant')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px  ">Assistant In-charge</a>
 </div>  
 </nav>
 
 
-<div class="container add_student mt-5">
+<div class="container add_student mt-5 col-md-5 offset-md-3 mt-5">
 
 <h1 style="font-family: Courier New; font-weight: Bold;">Edit Department</h1>
                 
@@ -36,17 +37,58 @@
         </div>
 
         <div class="mb-3">
-        <label for="inchargename" class="form-label" style="width: 200px; text-align: left;"><b>Incharge</b></label>
+        <label for="inchargename" class="form-label" style="width: 200px; text-align: left;"><b>In-charge</b></label>
             <select name="incharge" class="form-control">
-            @foreach($incharge as $shows)
-                <option value="{{$shows->id}}">{{$shows->incharge_name}}</option>
+
+            @php 
+            $value = \App\Models\Incharge::where(['id' => $lists->incharge_id])->pluck('incharge_name')->first();
+            @endphp
+            @if ($value != '')
+            <option value="{{$value}}" disabled selected hidden>{{$value}}</option>
+
+            @elseif ($value == '')
+            <option value="" disabled selected hidden>Select In-charge</option>
+            @endif
+            @foreach($user as $shows)
+            @if ($shows->type == 'incharge')
+            @if ($shows->incharge_name != '')
+            
+                <option value="{{$shows->incharge_id}}">{{$shows->incharge_name}}</option>
+            @endif 
+            @endif 
+            @endforeach    
+            </select>
+
+        </div>
+
+        <div class="mb-3">
+        <label for="inchargename" class="form-label" style="width: 200px; text-align: left;"><b>Assistant In-charge</b></label>
+            <select name="assistant" class="form-control">
+            <option value="" disabled selected hidden>Select Assistant In-charge</option>
+            @php 
+            $values = \App\Models\Incharge::where(['id' => $lists->assistant_incharge])->pluck('incharge_name')->first();
+            @endphp
+            @if ($values != '')
+            <option value="{{$value}}" disabled selected hidden>{{$values}}</option>
+
+            @elseif ($values == '')
+            <option value="" disabled selected hidden>Select Assistant In-charge</option>
+            @endif           
+
+            @foreach($user as $shows)
+            @if ($shows->type == 'assistant')
+            @if ($shows->incharge_name != '')
+            
+                <option value="{{$shows->incharge_id}}">{{$shows->incharge_name}}</option>
+            @endif 
+            @endif 
             @endforeach    
             </select>
 
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="{{route('admin_departments')}}" class="btn btn-danger">Cancel</a>
+        <a href="javascript:history.go(-1)" class="btn btn-danger">Cancel</a>
     </form>
     
 

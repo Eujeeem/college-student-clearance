@@ -17,6 +17,7 @@
 <a href="{{route('admin_students')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px ">Students</a>
 <a href="{{route('admin_departments')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px  ">Departments</a>
 <a href="{{route('admin_incharge')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px ">In-charge</a>
+<a href="{{route('admin_assistant')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px  ">Assistant In-charge</a>
 </div>  
 </nav>
 
@@ -56,8 +57,8 @@
 <div class="dashbord dashbord-blue">
 <div class="icon-section">
 <i class="fa fa-users" aria-hidden="true"></i><br>
-<small>Cleared Students</small>
-<p>unknown</p>
+<small>Assistant Incharge</small>
+<p>{{$users}}</p>
 </div>
 <div class="detail-section">
 <a href="{{route('admin_students')}}">More Info </a>

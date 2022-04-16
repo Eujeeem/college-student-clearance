@@ -58,18 +58,24 @@ class LoginController extends Controller
         $department = Department::count();
         $student = Student::count();
         $incharge = Incharge::count();
-        $users = User::count();
+        $users = DB::table('users')->where('type', '=', 'assistant')->count();
 
         
         return view ('pages.admin')->with("department",$department)->with("student",$student)->with("incharge", $incharge)->with("users", $users);
     }
 
     public function incharge_home(){
+
+        $year = date("Y");
+        $previousyear = $year -1;
+
+        $sy = $previousyear. "-". $year;
         
         $show = DB::table('lists')
         ->join('departments', 'lists.department_id', '=', 'departments.id')
         ->join('incharge', 'departments.incharge_id', '=', 'incharge.id')
         ->join('students', 'students.id', '=', 'lists.student_id')
+        ->where('lists.year', $sy)
         ->get();
         return view ('pages.incharge',['show' => $show]);
     }

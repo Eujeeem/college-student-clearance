@@ -19,10 +19,11 @@
 <a href="{{route('admin_students')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px ">Students</a>
 <a href="{{route('admin_departments')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px  ">Departments</a>
 <a href="{{route('admin_incharge')}}"  class="btn btn-light text-dark round-0"style="width:100%; border-radius:0; box-shadow:0px 0px font-size:20px;"><strong>In-charge</strong></a>
+<a href="{{route('admin_assistant')}}"  class="btn btn-primary text-dark "style="width:100%; border-radius:0; box-shadow:0px 0px  ">Assistant In-charge</a>
 </div>  
 </nav>
 
-<div class="container add_student mt-5">
+<div class="container  mt-5 col-md-5 offset-md-3 mt-5">
 
 <h1 style="font-family: Courier New; font-weight: Bold;">Edit In-charge</h1>
                 
@@ -35,7 +36,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="{{route('admin_incharge')}}" class="btn btn-danger">Cancel</a>
+        <a href="javascript:history.go(-1)" class="btn btn-danger">Cancel</a>
     </form>
 
 </div>
