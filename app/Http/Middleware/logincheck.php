@@ -21,6 +21,9 @@ class logincheck
         else if (Auth::check() && $type == "incharge"){
             return redirect()->route('incharge');
         }
+        else if (Auth::check() && $type == "assistant"){
+            return redirect()->route('assistant_incharge');
+        }
         return $next($request);
     }
 }

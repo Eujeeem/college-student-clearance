@@ -49,14 +49,20 @@
             @elseif ($value == '')
             <option value="" disabled selected hidden>Select In-charge</option>
             @endif
-            @foreach($user as $shows)
-            @if ($shows->type == 'incharge')
-            @if ($shows->incharge_name != '')
+            @foreach($sorter as $shows)
+
+            @php 
+            $value = \App\Models\User::where(['incharge_id' => $shows->id])->pluck('type')->first();
+            @endphp
+
+            @if ($value == 'incharge')
             
-                <option value="{{$shows->incharge_id}}">{{$shows->incharge_name}}</option>
+            
+                <option value="{{$shows->id}}">{{$shows->incharge_name}}</option>
+             
             @endif 
-            @endif 
-            @endforeach    
+            @endforeach   
+            <option value="">Remove Assistant In-charge</option> 
             </select>
 
         </div>
@@ -64,26 +70,34 @@
         <div class="mb-3">
         <label for="incharge" class="form-label" style="width: 200px; text-align: left;"><b>Assistant In-charge</b></label>
             <select name="assistant" class="form-control">
-            <option value="" disabled selected hidden>Select Assistant In-charge</option>
-            @php 
-            $values = \App\Models\Incharge::where(['id' => $lists->assistant_incharge])->pluck('incharge_name')->first();
-            @endphp
-            @if ($values != '')
-            <option value="{{$lists->incharge_id}}" >{{$values}}</option>
-
-            @elseif ($values == '')
-            <option value="" disabled selected hidden>Select Assistant In-charge</option>
-            @endif           
-
-            @foreach($user as $shows)
-            @if ($shows->type == 'assistant')
-            @if ($shows->incharge_name != '')
             
-                <option value="{{$shows->incharge_id}}">{{$shows->incharge_name}}</option>
-            @endif 
+
+            @php 
+            $value = \App\Models\Incharge::where(['id' => $lists->assistant_incharge])->pluck('incharge_name')->first();
+            @endphp
+            @if ($value != '')
+            <option value="{{$lists->incharge_id}}">{{$value}}</option>
+
+            @elseif ($value == '')
+            <option value="" disabled selected hidden>Select In-charge</option>
+            @endif
+            @foreach($sorters as $shows)
+
+            @php 
+            $value = \App\Models\User::where(['incharge_id' => $shows->id])->pluck('type')->first();
+            @endphp
+
+            @if ($value == 'assistant')
+            
+            
+                <option value="{{$shows->id}}">{{$shows->incharge_name}}</option>
+             
             @endif 
             @endforeach    
+            <option value="">Remove Assistant In-charge</option>
             </select>
+
+
 
         </div>
 

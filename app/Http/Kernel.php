@@ -58,7 +58,11 @@ class Kernel extends HttpKernel
         
         'manageInchargeAccess' => [
             \App\Http\Middleware\ManageInchargeAccess::class,
-        ]        
+        ],
+        
+        'manageAssistantAccess' => [
+            \App\Http\Middleware\ManageAssistantAccess::class,
+        ]          
     ];
 
     /**

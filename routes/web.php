@@ -122,6 +122,8 @@ Route::middleware(['logoutcheck', 'manageInchargeAccess'])->group(function(){
     Route::get('/incharge/BSIT/4th-Year', [LoginController::class, "incharge_BSIT_forth_year"])->name("incharge_BSIT_forth_year");
     
     Route::get('/incharge', [LoginController::class, "incharge_home"])->name("incharge"); 
+
+
     Route::get('/edit-status/{id}', [InchargeController::class, "edit_status"])->name("edit_status");
     Route::get('/update-status/{departmentname}/{id}', [InchargeController::class, "update_notes"])->name("update_notes");
     Route::post('/update/notes{id}', [InchargeController::class, "edit_notes"])->name("edit_notes");
@@ -135,6 +137,50 @@ Route::middleware(['logoutcheck', 'manageInchargeAccess'])->group(function(){
     
 });
 
+Route::middleware(['logoutcheck', 'manageAssistantAccess'])->group(function(){
+
+    Route::get('/assistant-incharge/BSBA', [LoginController::class, "assistant_incharge_home_BSBA"])->name("assistant_incharge_BSBA");
+    Route::get('/assistant-incharge/BSBA/1st-Year', [LoginController::class, "assistant_incharge_BSBA_first_year"])->name("assistant_incharge_BSBA_first_year");
+    Route::get('/assistant-incharge/BSBA/2nd-Year', [LoginController::class, "assistant_incharge_BSBA_second_year"])->name("assistant_incharge_BSBA_second_year");
+    Route::get('/assistant-incharge/BSBA/3rd-Year', [LoginController::class, "assistant_incharge_BSBA_third_year"])->name("assistant_incharge_BSBA_third_year");
+    Route::get('/assistant-incharge/BSBA/4th-Year', [LoginController::class, "assistant_incharge_BSBA_forth_year"])->name("assistant_incharge_BSBA_forth_year");
+
+    Route::get('/assistant-incharge/BSED', [LoginController::class, "assistant_incharge_home_BSED"])->name("assistant_incharge_BSED");
+    Route::get('/assistant-incharge/BSED/1st-Year', [LoginController::class, "assistant_incharge_BSED_first_year"])->name("assistant_incharge_BSED_first_year");
+    Route::get('/assistant-incharge/BSED/2nd-Year', [LoginController::class, "assistant_incharge_BSED_second_year"])->name("assistant_incharge_BSED_second_year");
+    Route::get('/assistant-incharge/BSED/3rd-Year', [LoginController::class, "assistant_incharge_BSED_third_year"])->name("assistant_incharge_BSED_third_year");
+    Route::get('/assistant-incharge/BSED/4th-Year', [LoginController::class, "assistant_incharge_BSED_forth_year"])->name("assistant_incharge_BSED_forth_year");
+
+    Route::get('/assistant-incharge/BEED', [LoginController::class, "assistant_incharge_home_BEED"])->name("assistant_incharge_BEED");
+    Route::get('/assistant-incharge/BEED/1st-Year', [LoginController::class, "assistant_incharge_BEED_first_year"])->name("assistant_incharge_BEED_first_year");
+    Route::get('/assistant-incharge/BEED/2nd-Year', [LoginController::class, "assistant_incharge_BEED_second_year"])->name("assistant_incharge_BEED_second_year");
+    Route::get('/assistant-incharge/BEED/3rd-Year', [LoginController::class, "assistant_incharge_BEED_third_year"])->name("assistant_incharge_BEED_third_year");
+    Route::get('/assistant-incharge/BEED/4th-Year', [LoginController::class, "assistant_incharge_BEED_forth_year"])->name("assistant_incharge_BEED_forth_year");
+
+    Route::get('/assistant-incharge/BSSW', [LoginController::class, "assistant_incharge_home_BSSW"])->name("assistant_incharge_BSSW");
+    Route::get('/assistant-incharge/BSSW/1st-Year', [LoginController::class, "assistant_incharge_BSSW_first_year"])->name("assistant_incharge_BSSW_first_year");
+    Route::get('/assistant-incharge/BSSW/2nd-Year', [LoginController::class, "assistant_incharge_BSSW_second_year"])->name("assistant_incharge_BSSW_second_year");
+    Route::get('/assistant-incharge/BSSW/3rd-Year', [LoginController::class, "assistant_incharge_BSSW_third_year"])->name("assistant_incharge_BSSW_third_year");
+    Route::get('/assistant-incharge/BSSW/4th-Year', [LoginController::class, "assistant_incharge_BSSW_forth_year"])->name("assistant_incharge_BSSW_forth_year");
+
+    Route::get('/assistant-incharge/BSHM', [LoginController::class, "assistant_incharge_home_BSHM"])->name("assistant_incharge_BSHM");
+    Route::get('/assistant-incharge/BSHM/1st-Year', [LoginController::class, "assistant_incharge_BSHM_first_year"])->name("assistant_incharge_BSHM_first_year");
+    Route::get('/assistant-incharge/BSHM/2nd-Year', [LoginController::class, "assistant_incharge_BSHM_second_year"])->name("assistant_incharge_BSHM_second_year");
+    Route::get('/assistant-incharge/BSHM/3rd-Year', [LoginController::class, "assistant_incharge_BSHM_third_year"])->name("assistant_incharge_BSHM_third_year");
+    Route::get('/assistant-incharge/BSHM/4th-Year', [LoginController::class, "assistant_incharge_BSHM_forth_year"])->name("assistant_incharge_BSHM_forth_year");
+
+    Route::get('/assistant-incharge/BSIT', [LoginController::class, "assistant_incharge_home_BSIT"])->name("assistant_incharge_BSIT");
+    Route::get('/assistant-incharge/BSIT/1st-Year', [LoginController::class, "assistant_incharge_BSIT_first_year"])->name("assistant_incharge_BSIT_first_year");
+    Route::get('/assistant-incharge/BSIT/2nd-Year', [LoginController::class, "assistant_incharge_BSIT_second_year"])->name("assistant_incharge_BSIT_second_year");
+    Route::get('/assistant-incharge/BSIT/3rd-Year', [LoginController::class, "assistant_incharge_BSIT_third_year"])->name("assistant_incharge_BSIT_third_year");
+    Route::get('/assistant-incharge/BSIT/4th-Year', [LoginController::class, "assistant_incharge_BSIT_forth_year"])->name("assistant_incharge_BSIT_forth_year");
+    
+    Route::get('/assistant-incharge', [LoginController::class, "assistant_incharge_home"])->name("assistant_incharge"); 
+    Route::get('/assistant-incharge/1st-Year', [LoginController::class, "assistant_incharge_home_first"])->name("assistant_incharge_home_first");
+    Route::get('/assistant-incharge/2nd-Year', [LoginController::class, "assistant_incharge_home_second"])->name("assistant_incharge_home_second");
+    Route::get('/assistant-incharge/3rd-Year', [LoginController::class, "assistant_incharge_home_third"])->name("assistant_incharge_home_third");
+    Route::get('/assistant-incharge/4th-Year', [LoginController::class, "assistant_incharge_home_forth"])->name("assistant_incharge_home_forth");
+});
 
 
 

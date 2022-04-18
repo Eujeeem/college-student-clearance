@@ -118,11 +118,32 @@ class AdminController extends Controller
     	$lists = Department::find($id);
         $incharge = Incharge::all();
 
+        // Select id From incharge Where NOT EXISTS ( select incharge_id from departments Where incharge.id = departments.incharge_id )
+
+        $incharge = Incharge::all();
+        
+
+        $sorter = DB::table('incharge')->whereNotExists(function($query)
+        {
+            $query->select(DB::raw(1))
+                  ->from('departments')
+                  ->whereRaw('incharge.id = departments.incharge_id');
+        })
+        ->get();
+
+        $sorters = DB::table('incharge')->whereNotExists(function($query)
+        {
+            $query->select(DB::raw(1))
+                  ->from('departments')
+                  ->whereRaw('incharge.id = departments.assistant_incharge');
+        })
+        ->get();
+
         $user  = DB::table('departments')
         ->rightjoin('incharge', 'incharge.id', '=', 'departments.incharge_id')
         ->rightjoin('users', 'incharge.id', '=', 'users.incharge_id')
         ->get();
-    	return view("Modals.edit_department")->with("lists",$lists)->with("incharge",$incharge)->with("user",$user);       
+    	return view("Modals.edit_department")->with("lists",$lists)->with("incharge",$incharge)->with("user",$user)->with("sorter",$sorter)->with("sorters",$sorters);       
 
     }
 

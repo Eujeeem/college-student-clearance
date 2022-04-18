@@ -18,6 +18,9 @@ class ManageAdminAccess
         else if($type == "incharge"){
             return redirect()->route('incharge');
         }
+        else if($type == "assistant"){
+            return redirect()->route('assistant_incharge');
+        }         
         return $next($request);
     }
 }
