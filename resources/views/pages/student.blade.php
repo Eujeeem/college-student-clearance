@@ -84,23 +84,27 @@ $count = $count+1
 					</div>
           <div class="table100-body js-pscroll">
 						<table>
-							<tbody>
+							<!-- <tbody>
 								<tr class="row100 body">
+
 									<td class="cell100 column1 font-weight-bold">{{$lists->department_name}}</td>
 									<td  class="cell100 column2">{{$lists->status}}</td>
 									<td class="cell100 column3 font-weight-bold">{{$lists->notes}}</td>
 									<td class="cell100 column4">{{$lists->date_cleared}}</td>
+
 								</tr>
-                </thead>
+                </thead> -->
     <tbody>
     @foreach ($show as $lists)
     @if ($lists->student_id == session('student_id'))  
+    @if ($lists->department_name != "")  
         <tr>
         <td class="cell100 column1 font-weight-bold">{{$lists->department_name}} </td>
         <td class="cell100 column2">{{$lists->status}}</td>
         <td class="cell100 column3 font-weight-bold">{{$lists->notes}}</td>
         <td class="cell100 column4">{{$lists->date_cleared}}</td>
         </tr>
+        @endif 
     @endif 
     @endforeach
     </tbody>

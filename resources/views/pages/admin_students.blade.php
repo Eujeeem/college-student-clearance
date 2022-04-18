@@ -26,7 +26,7 @@
 <div class="container col-md-8 offset-md-3 mt-5 ">
 <a href="{{route('add_new_student')}}" class="btn btn-primary ml-5"  >Add</a>
 <a href="{{route('admin')}}" class="btn btn-secondary offset-md-7">Back</a>
-<a href="{{route('view')}}" class="btn btn-warning md-3"  id="myBtn " >Import</a>
+<!-- <a href="{{route('view')}}" class="btn btn-warning md-3"  id="myBtn " >Import</a> -->
 
 
 

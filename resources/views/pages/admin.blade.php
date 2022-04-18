@@ -61,7 +61,7 @@
 <p>{{$users}}</p>
 </div>
 <div class="detail-section">
-<a href="{{route('admin_students')}}">More Info </a>
+<a href="{{route('admin_assistant')}}">More Info </a>
 </div>
 </div>
 </div>

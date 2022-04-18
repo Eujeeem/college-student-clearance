@@ -26,22 +26,10 @@
 <div class="container col-md-6 offset-md-3 mt-5">
     <h3 class="text-center">
 
-    @php
-$count = 1
-@endphp 
-@foreach ($show as $list)  
-  @if ($list->incharge_id == session()->get('incharge_id'))
-    @if ($count == 1)
-        <b>{{$list->department_name}}</b>
-
-@php
-$count = $count+1;
-$departmentname = $list->department_name
-@endphp
-    @endif  
-  @endif 
-@endforeach  
-
+    @php 
+      $value = \App\Models\Department::where(['incharge_id' => session('incharge_id')])->pluck('department_name')->first();
+      @endphp
+      {{$value}}  
     </h3> 
     <br>
 
@@ -64,7 +52,7 @@ $departmentname = $list->department_name
 <div class="container box2 "> 
 <form  name="statusForm" method="POST" onsubmit="return validateForm()" class="incharge-form" required>
       @csrf
-      <button formaction="{{route('studentStatus', $departmentname)}}" type="submit" class="btn btn-success mb-2 approve" id="approveBtn" >Approve Selected</button>
+      <button formaction="{{route('studentStatus', $value)}}" type="submit" class="btn btn-success mb-2 approve" id="approveBtn" >Approve Selected</button>
     <table id="example" class="table table-bordered table-striped">
     <thead class="table-primary table-sm">
     <tr>
@@ -89,10 +77,10 @@ $departmentname = $list->department_name
         <td>{{$lists->course_name}}</td>
         <td>{{$lists->student_year}}</td>
         
-        @if($lists->status == "Pending")
+        @if($lists->status == "Pre-Approved")
             <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-warning" onclick="return confirm('Are you sure you want to approve this student?');">{{$lists->status}} </a></td>
             @if($lists->notes != "")
-                <td><a href="{{route('update_notes',[$departmentname, $lists->id])}}" ><i class="fas fa-edit"></i></a>  
+                <td><a href="{{route('update_notes',[$value, $lists->id])}}" ><i class="fas fa-edit"></i></a>  
             <a class="fas fa-bell ml-3" data-bs-toggle="collapse" href="#{{$lists->student_lname}}" role="button" aria-expanded="false" aria-controls="collapseExample">See Notes</a>
               <div class="collapse" id="{{$lists->student_lname}}">
             <div class="card card-body">
@@ -101,13 +89,13 @@ $departmentname = $list->department_name
             </div>
               </td>
                 @elseif ($lists->notes == "")
-                <td>{{$lists->notes}}<a href="{{route('update_notes',[$departmentname, $lists->id])}}"><i class="fas fa-edit"></i></a></td>
+                <td>{{$lists->notes}}<a href="{{route('update_notes',[$value, $lists->id])}}"><i class="fas fa-edit"></i></a></td>
                 @endif
         
         @elseif ($lists->status == "Cleared")
             <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-success" onclick="return confirm('Are you sure you want to return this student to pending?');">{{$lists->status}}</a></td>
             @if($lists->notes != "")
-                <td><a href="{{route('update_notes',[$departmentname, $lists->id])}}" ><i class="fas fa-edit"></i></a>  
+                <td><a href="{{route('update_notes',[$value, $lists->id])}}" ><i class="fas fa-edit"></i></a>  
             <a class="fas fa-bell ml-3" data-bs-toggle="collapse" href="#{{$lists->student_lname}}" role="button" aria-expanded="false" aria-controls="collapseExample">See Notes</a>
               <div class="collapse" id="{{$lists->student_lname}}">
             <div class="card card-body">
@@ -116,7 +104,7 @@ $departmentname = $list->department_name
             </div>
               </td>
                 @elseif ($lists->notes == "")
-                <td>{{$lists->notes}}<a href="{{route('update_notes',[$departmentname, $lists->id])}}"><i class="fas fa-edit"></i></a></td>
+                <td>{{$lists->notes}}<a href="{{route('update_notes',[$value, $lists->id])}}"><i class="fas fa-edit"></i></a></td>
                 @endif
             
         @endif

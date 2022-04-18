@@ -76,7 +76,7 @@ $count = 1
 <div class="container box2 ">
     <form  name="statusForm" method="POST" onsubmit="return validateForm()" class="incharge-form" required>
       @csrf
-      <button formaction="{{route('studentStatus', <?php $value; ?>)}}" type="submit" class="btn btn-success mb-2 approve" id="approveBtn" >Approve Selected</button>
+      <button formaction="{{route('studentStatus', $value)}}" type="submit" class="btn btn-success mb-2 approve" id="approveBtn" >Approve Selected</button>
     <table id="example" class="table table-bordered table-striped">
     <thead class="table-primary table-sm">
     <tr>
@@ -100,7 +100,7 @@ $count = 1
         <td>{{$lists->course_name}}</td>
         <td>{{$lists->student_year}}</td>
         
-        @if($lists->status == "Pending")
+        @if($lists->status == "Pre-Approved")
             <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-warning" onclick="return confirm('Are you sure you want to approve this student?');">{{$lists->status}} </a></td>
             @if($lists->notes != "")
                 <td><a href="{{route('update_notes',[$value, $lists->id])}}" ><i class="fas fa-edit"></i></a>  

@@ -36,22 +36,22 @@ class InchargeController extends Controller
         }    
 
         $mytime = Carbon::today()->format('Y-m-d');
-        if($status == "Pending"){
+        if($status == "Pre-Approved"){
             $affected = DB::table('lists')
                 ->where('id', $list_id)
                 ->update([
                     'status' => "Cleared",
                     'date_cleared' => $mytime
                     ]);
-            return redirect()->route('incharge');        
+                    return redirect()->back();        
         } elseif($status == "Cleared"){
             $affected = DB::table('lists')
                 ->where('id', $list_id)
                 ->update([
-                    'status' => "Pending",
+                    'status' => "Pre-Approved",
                     'date_cleared' => NULL
                     ]);
-            return redirect()->route('incharge');
+                    return redirect()->back();
         }           
 
     }
@@ -124,6 +124,7 @@ class InchargeController extends Controller
         return redirect()->back();
         }
         elseif($ids==null){
+
             return redirect()->back();
 
         }

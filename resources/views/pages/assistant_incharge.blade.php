@@ -90,7 +90,7 @@ $count = 1
     <tbody>
 
     @foreach ($show as $lists)  
-
+    @if($lists->status != "Complete")
       @if ($lists->assistant_incharge == session()->get('incharge_id'))   
         <tr>
         <td><input type="checkbox" name="ids[]" class="checkBoxClass" value="{{$lists->id}}"/></td>
@@ -113,7 +113,7 @@ $count = 1
                 <td>{{$lists->notes}}<a href="{{route('update_notes',[$departmentname, $lists->id])}}"><i class="fas fa-edit"></i></a></td>
                 @endif
         
-        @elseif ($lists->status == "Cleared")
+        @elseif ($lists->status == "Pre-Approved")
             <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-success" onclick="return confirm('Are you sure you want to return this student to pending?');">{{$lists->status}}</a></td>
             @if($lists->notes != "")
                 <td><a href="{{route('update_notes',[$departmentname, $lists->id])}}" ><i class="fas fa-edit"></i></a>  
@@ -134,7 +134,8 @@ $count = 1
 
         </tr>
       @endif 
-        
+      @elseif ($lists->status == "Cleared")
+      @endif     
     @endforeach
 
     </tbody>

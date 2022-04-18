@@ -183,8 +183,13 @@ class AdminController extends Controller
         $user->type= $request->position;
         $user->save();
 
+        if($request->position == "incharge")
         return redirect()->route('admin_incharge');
 
+        elseif($request->position == "assistant"){
+            return redirect()->route('admin_assistant');
+
+        }
     }  
     
     public function edit_incharge(Request $request, $id){
