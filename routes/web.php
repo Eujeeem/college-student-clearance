@@ -180,6 +180,12 @@ Route::middleware(['logoutcheck', 'manageAssistantAccess'])->group(function(){
     Route::get('/assistant-incharge/2nd-Year', [LoginController::class, "assistant_incharge_home_second"])->name("assistant_incharge_home_second");
     Route::get('/assistant-incharge/3rd-Year', [LoginController::class, "assistant_incharge_home_third"])->name("assistant_incharge_home_third");
     Route::get('/assistant-incharge/4th-Year', [LoginController::class, "assistant_incharge_home_forth"])->name("assistant_incharge_home_forth");
+
+    Route::post('/assistant/edits/note/{departmentname}', [InchargeController::class, "studentStatusAssistant"])->name("studentStatusAssistant");
+    Route::get('/assistant/edit-status/{id}', [InchargeController::class, "edit_status_assistant"])->name("edit_status_assistant");
+    Route::get('/assistant/update-status/{departmentname}/{id}', [InchargeController::class, "update_notes_assistant"])->name("update_notes_assistant");
+    Route::post('/assistant/update/notes/{id}', [InchargeController::class, "edit_notes_assistant"])->name("edit_notes_assistant");
+
 });
 
 

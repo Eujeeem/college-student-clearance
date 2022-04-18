@@ -74,7 +74,7 @@ $count = 1
 <div class="container box2 ">
     <form  name="statusForm" method="POST" onsubmit="return validateForm()" class="incharge-form" required>
       @csrf
-      <button formaction="{{route('studentStatus', <?php $value; ?>)}}" type="submit" class="btn btn-success mb-2 approve" id="approveBtn" >Approve Selected</button>
+      <button formaction="{{route('studentStatusAssistant',  $value)}}" type="submit" class="btn btn-success mb-2 approve" id="approveBtn" >Approve Selected</button>
     <table id="example" class="table table-bordered table-striped">
     <thead class="table-primary table-sm">
     <tr>
@@ -90,7 +90,7 @@ $count = 1
     <tbody>
 
     @foreach ($show as $lists)  
-    @if($lists->status != "Complete")
+ 
       @if ($lists->assistant_incharge == session()->get('incharge_id'))   
         <tr>
         <td><input type="checkbox" name="ids[]" class="checkBoxClass" value="{{$lists->id}}"/></td>
@@ -99,9 +99,9 @@ $count = 1
         <td>{{$lists->student_year}}</td>
         
         @if($lists->status == "Pending")
-            <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-warning" onclick="return confirm('Are you sure you want to approve this student?');">{{$lists->status}} </a></td>
+            <td><a href="{{route('edit_status_assistant', $lists->id)}}" class="btn btn-warning" onclick="return confirm('Are you sure you want to approve this student?');">{{$lists->status}} </a></td>
             @if($lists->notes != "")
-                <td><a href="{{route('update_notes',[$departmentname, $lists->id])}}" ><i class="fas fa-edit"></i></a>  
+                <td><a href="{{route('update_notes_assistant',[$value, $lists->id])}}" ><i class="fas fa-edit"></i></a>  
             <a class="fas fa-bell ml-3" data-bs-toggle="collapse" href="#{{$lists->student_lname}}" role="button" aria-expanded="false" aria-controls="collapseExample">See Notes</a>
               <div class="collapse" id="{{$lists->student_lname}}">
             <div class="card card-body">
@@ -110,13 +110,13 @@ $count = 1
             </div>
               </td>
                 @elseif ($lists->notes == "")
-                <td>{{$lists->notes}}<a href="{{route('update_notes',[$departmentname, $lists->id])}}"><i class="fas fa-edit"></i></a></td>
+                <td>{{$lists->notes}}<a href="{{route('update_notes_assistant',[$value, $lists->id])}}"><i class="fas fa-edit"></i></a></td>
                 @endif
         
         @elseif ($lists->status == "Pre-Approved")
-            <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-success" onclick="return confirm('Are you sure you want to return this student to pending?');">{{$lists->status}}</a></td>
+            <td><a href="{{route('edit_status_assistant', $lists->id)}}" class="btn btn-success" onclick="return confirm('Are you sure you want to return this student to pending?');">{{$lists->status}}</a></td>
             @if($lists->notes != "")
-                <td><a href="{{route('update_notes',[$departmentname, $lists->id])}}" ><i class="fas fa-edit"></i></a>  
+                <td><a href="{{route('update_notes_assistant',[$value, $lists->id])}}" ><i class="fas fa-edit"></i></a>  
             <a class="fas fa-bell ml-3" data-bs-toggle="collapse" href="#{{$lists->student_lname}}" role="button" aria-expanded="false" aria-controls="collapseExample">See Notes</a>
               <div class="collapse" id="{{$lists->student_lname}}">
             <div class="card card-body">
@@ -125,7 +125,7 @@ $count = 1
             </div>
               </td>
                 @elseif ($lists->notes == "")
-                <td>{{$lists->notes}}<a href="{{route('update_notes',[$departmentname, $lists->id])}}"><i class="fas fa-edit"></i></a></td>
+                <td>{{$lists->notes}}<a href="{{route('update_notes_assistant',[$value, $lists->id])}}"><i class="fas fa-edit"></i></a></td>
                 @endif
             
         @endif
@@ -134,8 +134,7 @@ $count = 1
 
         </tr>
       @endif 
-      @elseif ($lists->status == "Cleared")
-      @endif     
+   
     @endforeach
 
     </tbody>
