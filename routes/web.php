@@ -75,6 +75,7 @@ Route::middleware(['logoutcheck', 'manageAdminAccess'])->group(function(){
 
     Route::post('/import', [StudentController::class, "import"]);
 
+
     
 });
 
@@ -201,7 +202,6 @@ Route::get('/logout', function(Request $request)
 });    
 
 
-
 Route::get('/change-password/{id}', [LoginController::class, "change_password"])->name("change_password");
 Route::post('/update-password/{id}', [LoginController::class, "update_password"])->name("update_password");
-
+Route::get('/admin/user/reset{id}', [AdminController::class, "reset_user"])->name("reset_user");

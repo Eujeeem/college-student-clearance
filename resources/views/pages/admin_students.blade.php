@@ -55,7 +55,7 @@
         <td>{{$lists->course_name}}</td>
         <td>{{$lists->student_year}}</td>
         <td>{{$lists->student_contactnumber}}</td>
-        <td class="text-center"><a href="{{route('edit_student', $lists->id)}}" class="me-1"><i class="fas fa-edit"></i></a><a href="{{route('delete_student', $lists->id)}}" onclick="return confirm('Are you sure you want to delete it?');"><i class="fas fa-trash-alt"></i></a></td>
+        <td class="text-center"><a href="{{route('edit_student', $lists->id)}}" class="me-1"><i class="fas fa-edit"></i></a><a href="{{route('reset_user', $lists->id)}}" onclick="return confirm('Are you sure you want to delete it?');"><i class="fas fa-trash-alt"></i></a>  <a href="{{route('reset_user', $lists->id)}}" onclick="return confirm('Are you sure you want to reset the password?');" class="me-1"><i class="fas fa-redo-alt"></i></a></td>
         </tr>
     @endforeach
 

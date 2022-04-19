@@ -282,6 +282,17 @@ class AdminController extends Controller
         student::destroy($id);
         return redirect()->route('admin_students');  
     }
+
+    public function reset_user( $id){
+        $newpass = Hash::make($id);
+    	$user = User::where('username', $id)->first();
+        $user->password = $newpass;
+        $user->save();
+
+        return redirect()->back();
+        
+
+    }
 }
 
 

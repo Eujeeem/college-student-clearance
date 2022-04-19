@@ -46,7 +46,7 @@
         <td>{{$lists->incharge_id}}</td> 
         <td>{{$lists->incharge_name}}</td>        
         <td>{{$lists->department_name}} </td>
-        <td class="text-center"><a href="{{route('edit_incharge', $lists->incharge_id)}}" class="me-1"><i class="fas fa-edit"></i></a><a href="{{route('delete_incharge', $lists->id)}}" onclick="return confirm('Are you sure you want to delete it?');"><i class="fas fa-trash-alt"></i></a></td>
+        <td class="text-center"><a href="{{route('edit_incharge', $lists->incharge_id)}}" class="me-1"><i class="fas fa-edit"></i></a><a href="{{route('delete_incharge', $lists->id)}}" onclick="return confirm('Are you sure you want to delete it?');"><i class="fas fa-trash-alt"></i></a>  <a href="{{route('reset_user', $lists->incharge_id)}}" onclick="return confirm('Are you sure you want to reset the password?');" class="me-1"><i class="fas fa-redo-alt"></i></a></td>
         </tr>
         @endif  
         @endif  
