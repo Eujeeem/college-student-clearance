@@ -11,12 +11,12 @@
 @include('sections.header2')
 
 <nav class="side-nav navbar-dark bg-primary" 
-  style="min-height: 1000px;width: 15%;"> <img src="/images/logo.png " style="min-height: 130px;width: 80%; margin-left:10%"><br><br><br>
+  style="min-height: 1000px;width: 15%; position:fixed; overflow-y:hidden; overflow-x:hidden;"> <img src="/images/logo.png " style="min-height: 130px;width: 80%; margin-left:10%; margin-top:10%"><br><br><br>
 
 </nav>
 
 
-<div  class="container col-md-5 offset-md-3 mt-5">
+<div  class="container col-md-5 offset-md-3 mt-5 pt-5">
         
 <h1 style="font-family: Courier New; font-weight: Bold;">Change Password</h1>
 

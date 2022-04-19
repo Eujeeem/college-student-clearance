@@ -11,7 +11,7 @@
 @include('sections.header')
 
 <nav class="side-nav navbar-dark bg-primary" 
-  style="min-height: 1000px;width: 15%;">  <br><br><br>
+  style="min-height: 1000px;width: 15%; position:fixed; overflow-y:hidden; overflow-x:hidden;">  <br><br><br>
   
   @php
 $count = 1
@@ -59,7 +59,7 @@ $count = $count+1
 </div>
   </nav>
 <div class="student">
-<div class="container col-md-6 offset-md-3 mt-2"  style="width: 150%;">
+<div class="container col-md-6 offset-md-3 mt-5 pt-5"  style="width: 150%;">
 <div class="">
     <h1 style="font-family:Stencil;" class="text-center mt-5 ml-5">Online Student Clearance</h1>
     <!-- {{ session()->get('student_id') }} -->

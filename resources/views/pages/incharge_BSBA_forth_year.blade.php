@@ -9,7 +9,7 @@ Incharge - BSBA First Year
 
 @include('sections.header_incharge')
 <nav class="side-nav navbar-dark bg-primary" 
-  style="min-height: 1000px;width: 15%;"> <img src="/images/logo.png " style="min-height: 130px;width: 80%; margin-left:10%"><br><br><br>
+style="min-height: 1000px;width: 15%; position:fixed; overflow-y:hidden; overflow-x:hidden;"> <img src="/images/logo.png " style="min-height: 130px;width: 80%; margin-left:10%; margin-top:10%;"><br><br><br>
 
 
 <div>
@@ -23,7 +23,7 @@ Incharge - BSBA First Year
 </div>  
 </nav>
 
-<div class="container col-md-6 offset-md-3 mt-5">
+<div class="container col-md-6 offset-md-3 mt-5 pt-5">
     <h3 class="text-center">
 
     @php 
