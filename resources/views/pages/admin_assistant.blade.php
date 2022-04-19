@@ -10,7 +10,7 @@
 
 @include('sections.header2')
 <nav class="side-nav navbar-dark bg-primary" 
-  style="min-height: 1000px;width: 15%;"> <img src="/images/logo.png " style="min-height: 130px;width: 80%; margin-left:10%"><br><br><br>
+style="min-height: 1000px;width: 15%; position:fixed; overflow-y:hidden; overflow-x:hidden;"> <img src="/images/logo.png " style="min-height: 130px;width: 80%; margin-left:10%; margin-top:5%;"><br><br><br>
 
 
 <div>
@@ -21,7 +21,7 @@
 <a href="{{route('admin_assistant')}}"  class="btn btn-light text-dark round-0"style="width:100%; border-radius:0; box-shadow:0px 0px font-size:20px;"><strong>Assistant In-charge</strong></a>
 </div>  
 </nav>
-<div class="container col-md-8 offset-md-3 mt-5">
+<div class="container col-md-8 offset-md-3 mt-5 pt-5">
 <a href="{{route('add_new_incharge')}}" class="btn btn-primary ml-5" id="myBtn" >Add</a>
 <a href="{{route('admin')}}" class="btn btn-secondary offset-md-9">Back</a>
 

@@ -11,7 +11,7 @@
 @include('sections.header2')
 
 <nav class="side-nav navbar-dark bg-primary" 
-  style="min-height: 1000px;width: 15%;"> <img src="/images/logo.png " style="min-height: 130px;width: 80%; margin-left:10%"><br><br><br>
+  style="min-height: 1000px;width: 15%; position:fixed; overflow-y:hidden; overflow-x:hidden;"> <img src="/images/logo.png " style="min-height: 130px;width: 80%; margin-left:10%; margin-top:5%;"><br><br><br>
 
 
 <div>
@@ -23,13 +23,13 @@
 </div>  
 </nav>
   
-<div class="container col-md-8 offset-md-3 mt-5 ">
+<div class="container col-md-8 offset-md-3 mt-5 pt-5">
 <a href="{{route('add_new_student')}}" class="btn btn-primary ml-5"  >Add</a>
 <a href="{{route('admin')}}" class="btn btn-secondary offset-md-7">Back</a>
 <!-- <a href="{{route('view')}}" class="btn btn-warning md-3"  id="myBtn " >Import</a> -->
 
 
-<button class="btn btn-success" onclick="exportTableToCSV('completed_students.csv')">Export Student List</button>
+<button class="btn btn-success" onclick="exportTableToCSV('completed_students.csv')"><i class="fas fa-download"></i></button>
 <!-- Table -->
  <div class="container box mt-3 ">
     <table id="example" class="table table-bordered table-striped">
@@ -44,6 +44,7 @@
        <th width="20%">Course</th>
        <th width="10%">Year</th>
        <th width="10%">Contact Number</th>
+       <th width="10%">Status</th>
        <th width="10%">Action</th>
       </tr>
      </thead>
@@ -51,10 +52,26 @@
     @foreach ($show as $lists)
         <tr>
         <td>{{$lists->id}}</td>
-        <td>{{$lists->student_lname}}, {{$lists->student_fname}} {{$lists->student_mname}}. </td>
+        <td>{{$lists->student_lname}}, {{$lists->student_fname}} {{$lists->student_mname}} </td>
         <td>{{$lists->course_name}}</td>
         <td>{{$lists->student_year}}</td>
         <td>{{$lists->student_contactnumber}}</td>
+
+
+
+        @php 
+        $complete = \App\Models\Lists::where(['student_id' => $lists->id,'status' => 'Cleared'])->count();
+        @endphp
+    
+        @if ($complete == $count)  
+      
+        <td>Cleared</td>
+
+        @else
+
+        <td>Pending</td>
+
+        @endif
         <td class="text-center"><a href="{{route('edit_student', $lists->id)}}" class="me-1"><i class="fas fa-edit"></i></a><a href="{{route('reset_user', $lists->id)}}" onclick="return confirm('Are you sure you want to delete it?');"><i class="fas fa-trash-alt"></i></a>  <a href="{{route('reset_user', $lists->id)}}" onclick="return confirm('Are you sure you want to reset the password?');" class="me-1"><i class="fas fa-redo-alt"></i></a></td>
         </tr>
     @endforeach
@@ -62,33 +79,6 @@
     </tbody>
     </table>
    </div>
-<!-- <div class="grid-container mt-3 ">
-    <table id="example" class="table table-hover table-bordered" style="width:123% ">
-    <thead class="table-primary table-sm border-dark">
-        <tr>
-        <th >Student ID</th>
-        <th >Student Name</th>
-        <th >Course</th>
-        <th >Year</th>
-        <th >Contact Number</th>
-        <th class="text-center">Action</th>
-
-        </tr>
-    </thead>
-    <tbody>
-    @foreach ($show as $lists)
-        <tr>
-        <td>{{$lists->id}}</td>
-        <td>{{$lists->student_lname}}, {{$lists->student_fname}} {{$lists->student_mname}}. </td>
-        <td>{{$lists->course_name}}</td>
-        <td>{{$lists->student_year}}</td>
-        <td>{{$lists->student_contactnumber}}</td>
-        <td class="text-center"><a href="{{route('edit_student', $lists->id)}}" class="me-1"><i class="fas fa-edit"></i></a><a href="{{route('delete_student', $lists->id)}}" onclick="return confirm('Are you sure you want to delete it?');"><i class="fas fa-trash-alt"></i></a></td>
-        </tr>
-    @endforeach
-
-    </tbody>
-    </table> -->
 
 
     

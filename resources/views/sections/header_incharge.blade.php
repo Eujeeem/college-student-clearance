@@ -1,5 +1,5 @@
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-0 justify-content-end pl-5 ">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-0 justify-content-end pl-5 fixed-top">
 
 <!-- @php
 $count = 1

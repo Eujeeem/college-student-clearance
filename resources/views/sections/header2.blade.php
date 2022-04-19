@@ -1,5 +1,5 @@
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-0 justify-content-end pl-5">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-0 justify-content-end pl-5 fixed-top" >
 
     <div class="dropdown ">
   <button class="btn btn-primary dropdown-toggle p-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

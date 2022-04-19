@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
     public function students_home(){
+
+        $count = DB::table('departments')->count();
         $show = DB::table('students')->get();        
 
-        return view('pages.admin_students', ['show' => $show]);
+        return view('pages.admin_students', ['show' => $show])->with("count",$count);
     }
     public function departments_home(){
         $show = DB::table('incharge')

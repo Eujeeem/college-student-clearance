@@ -80,7 +80,7 @@
         <td>{{$lists->course_name}}</td>
         <td>{{$lists->student_year}}</td>
         
-        @if($lists->status == "pre-Approved")
+        @if($lists->status == "Pre-Approved")
             <td><a href="{{route('edit_status', $lists->id)}}" class="btn btn-warning" onclick="return confirm('Are you sure you want to approve this student?');">{{$lists->status}} </a></td>
             @if($lists->notes != "")
                 <td><a href="{{route('update_notes',[$value, $lists->id])}}" ><i class="fas fa-edit"></i></a>  
