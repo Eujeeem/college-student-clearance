@@ -1368,5 +1368,49 @@ class LoginController extends Controller
         ]);    
 
     }   
+
+    public function change_password_student($id){
+        
+        $users = DB::table('users')->where('username', $id)->get();
+        return view ('Modals.change_password_student',['users' => $users]);
+    }   
+
+    public function update_password_student(Request $request, $id){
+        $credentials = $request->only('username','oldpassword');
+        $newpassword = $request->newpassword;
+        $oldpass = $request->oldpassword;
+        $newpass = Hash::make($newpassword);
+
+        $user = User::where('username', $id)->first();
+        $pass = $user->password;
+        if (Hash::Check($oldpass, $pass)){
+            
+            $user->password = $newpass;
+            $user->save();
+
+            return redirect('/logout');
+            
+            // if ($user->type == "student"){      
+            //     return redirect()->route('student');
+            
+            // } elseif ($user->type == "incharge"){      
+            //     return redirect()->route('incharge');                 
+                                
+            // } elseif ($user->type == "admin"){
+                
+            //     return redirect()->route('admin');
+            // }
+            // elseif ($user->type == "assistant"){     
+            //     return redirect()->route('assistant_incharge');
+            // }
+
+        } 
+
+        
+        return back()->withErrors([
+            "Invalid Password!"
+        ]);    
+
+    }
 }
 

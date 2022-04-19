@@ -81,6 +81,9 @@ Route::middleware(['logoutcheck', 'manageAdminAccess'])->group(function(){
 Route::middleware(['logoutcheck', 'manageStudentAccess'])->group(function(){
 
     Route::get('/student', [LoginController::class, "student_home"])->name("student"); 
+
+    Route::get('/student/change-password/{id}', [LoginController::class, "change_password_student"])->name("change_password_student");
+    Route::post('/student/update-password/{id}', [LoginController::class, "update_password_student"])->name("update_password_student");
 });
 
 Route::middleware(['logoutcheck', 'manageInchargeAccess'])->group(function(){
