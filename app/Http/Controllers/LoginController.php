@@ -10,6 +10,7 @@ use App\Models\Incharge;
 use App\Models\Lists;
 use App\Models\Student;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -1323,5 +1324,49 @@ class LoginController extends Controller
         ->get();
         return view ('pages.student',['show' => $show]);
     }    
+
+    public function change_password($id){
+        
+        $users = DB::table('users')->where('username', $id)->get();
+        return view ('Modals.change_password',['users' => $users]);
+    }   
+
+    public function update_password(Request $request, $id){
+        $credentials = $request->only('username','oldpassword');
+        $newpassword = $request->newpassword;
+        $oldpass = $request->oldpassword;
+        $newpass = Hash::make($newpassword);
+
+        $user = User::where('username', $id)->first();
+        $pass = $user->password;
+        if (Hash::Check($oldpass, $pass)){
+            
+            $user->password = $newpass;
+            $user->save();
+
+            return redirect('/logout');
+            
+            // if ($user->type == "student"){      
+            //     return redirect()->route('student');
+            
+            // } elseif ($user->type == "incharge"){      
+            //     return redirect()->route('incharge');                 
+                                
+            // } elseif ($user->type == "admin"){
+                
+            //     return redirect()->route('admin');
+            // }
+            // elseif ($user->type == "assistant"){     
+            //     return redirect()->route('assistant_incharge');
+            // }
+
+        } 
+
+        
+        return back()->withErrors([
+            "Invalid Password!"
+        ]);    
+
+    }   
 }
 

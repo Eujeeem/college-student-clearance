@@ -7,7 +7,6 @@
   </button>
   
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="#"><i class="fas fa-key"></i> Change Password</a></li>
     <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
   </ul>
 </div>

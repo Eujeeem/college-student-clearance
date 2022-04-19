@@ -196,3 +196,9 @@ Route::get('/logout', function(Request $request)
     Auth::logout();
     return redirect()->route('front');
 });    
+
+
+
+Route::get('/change-password/{id}', [LoginController::class, "change_password"])->name("change_password");
+Route::post('/update-password/{id}', [LoginController::class, "update_password"])->name("update_password");
+
